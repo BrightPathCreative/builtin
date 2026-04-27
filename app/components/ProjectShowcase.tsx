@@ -61,8 +61,8 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
       <div className="project-showcase__inner">
         <div className="project-showcase__media" aria-live="polite">
           {projects.map((project, index) => {
-          const image = project.images?.[0];
-          const isActive = index === active;
+            const image = project.images?.[0];
+            const isActive = index === active;
 
             return image ? (
               <Image
@@ -82,17 +82,21 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
         </div>
 
         <div className="project-showcase__content" aria-live="polite">
-          {projects.map((project, index) => (
-            <article
-              key={project.title}
-              className={`project-showcase__copy${index === active ? ' project-showcase__copy--active' : ''}`}
-              aria-hidden={index !== active}
-            >
-              <p className="project-label">{project.label}</p>
-              <h3>{project.title}</h3>
-              <p>{project.text}</p>
-            </article>
-          ))}
+          {projects.map((project, index) => {
+            const isLongTitle = project.title.length > 20;
+
+            return (
+              <article
+                key={project.title}
+                className={`project-showcase__copy${index === active ? ' project-showcase__copy--active' : ''}${isLongTitle ? ' project-showcase__copy--compact' : ''}`}
+                aria-hidden={index !== active}
+              >
+                <p className="project-label">{project.label}</p>
+                <h3>{project.title}</h3>
+                <p>{project.text}</p>
+              </article>
+            );
+          })}
           <Link className="project-showcase__link" href="/contact">
             Discuss a similar project
           </Link>

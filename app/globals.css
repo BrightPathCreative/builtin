@@ -803,6 +803,12 @@ nav a:hover::after,
   text-transform: uppercase;
 }
 
+.project-showcase__copy--compact h3 {
+  font-size: clamp(1.9rem, 3.35vw, 3.35rem);
+  letter-spacing: -0.055em;
+  max-width: 12ch;
+}
+
 .project-showcase__content > p:last-of-type {
   font-size: clamp(0.9rem, 1.2vw, 1rem);
   line-height: 1.75;
@@ -1281,6 +1287,11 @@ footer a {
     font-size: clamp(1.45rem, 7vw, 2.2rem);
     letter-spacing: -0.045em;
     max-width: 11ch;
+  }
+
+  .project-showcase__copy--compact h3 {
+    font-size: clamp(1.35rem, 6.2vw, 1.95rem);
+    max-width: 12ch;
   }
 
   .project-showcase__nav {
