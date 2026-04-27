@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import ProjectCarousel, { type CarouselImage } from "./components/ProjectCarousel";
+import ProjectShowcase, { type ShowcaseImage } from "./components/ProjectShowcase";
 import HeroCarousel from "./components/HeroCarousel";
 
 const faqs = [
@@ -63,10 +63,10 @@ interface Project {
   title: string;
   label: string;
   text: string;
-  images?: CarouselImage[];
+  images?: ShowcaseImage[];
 }
 
-const murrumbeenaImages: CarouselImage[] = [
+const murrumbeenaImages: ShowcaseImage[] = [
   {
     src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-kitchen-window-seat.png",
     alt: "Murrumbeena Residence kitchen renovation by Built In. Melbourne – navy cabinetry, window seat, brass hardware and marble benchtops"
@@ -319,27 +319,7 @@ export default function Home() {
             <p className="eyebrow">Selected Projects</p>
             <h2>Built With Restraint, Precision, and Care.</h2>
           </div>
-          <div className="project-list">
-            {projects.map((project) => (
-              <article className="project-card reveal" key={project.title}>
-                <div className="project-image-slot">
-                  {project.images && project.images.length > 0 ? (
-                    <ProjectCarousel
-                      images={project.images}
-                      ariaLabel={`${project.title} – project photography`}
-                    />
-                  ) : (
-                    <div className="image-placeholder">Image Pending</div>
-                  )}
-                </div>
-                <div>
-                  <p className="project-label">{project.label}</p>
-                  <h3>{project.title}</h3>
-                  <p>{project.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ProjectShowcase projects={projects} />
           <p className="instagram-note reveal">
             Additional projects documented on Instagram:{" "}
             <a href="https://www.instagram.com/builtin.melbourne"> @builtin.melbourne</a>
