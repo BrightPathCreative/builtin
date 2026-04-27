@@ -10,7 +10,6 @@ export default function PrivacyPage() {
   return (
     <main id="top">
       <section className="section-shell legal-page reveal">
-        <p className="eyebrow">Privacy</p>
         <h1>Privacy Policy</h1>
         <p>
           Built In. Melbourne only collects the information you choose to submit
