@@ -41,16 +41,16 @@ Single-page landing page for **Built In. Melbourne** (builtinmelbourne.com.au), 
 
 | Element | Font | Weight | Size (desktop) | Notes |
 |---------|------|--------|-----------------|-------|
-| Brand mark / logo text | Gotham (or fallback: `"Montserrat", sans-serif`) | 700 | Per logo spec | All caps for brand mark |
-| H1 | `"Playfair Display", Georgia, serif` | 700 | 56px | Hero headline only |
-| H2 (section heads) | `"Playfair Display", Georgia, serif` | 600 | 36px | Section titles |
-| H3 (sub-heads) | `"Playfair Display", Georgia, serif` | 600 | 24px | Service names, process steps, FAQ questions |
-| Body | `"DM Sans", "Helvetica Neue", sans-serif` | 400 | 17px | Line height 1.7, max-width 680px for readability |
-| Body bold | `"DM Sans", "Helvetica Neue", sans-serif` | 600 | 17px | Emphasis, labels |
-| Micro text | `"DM Sans", "Helvetica Neue", sans-serif` | 400 | 14px | Trust bar stats, captions, footer |
-| Button text | `"DM Sans", "Helvetica Neue", sans-serif` | 600 | 15px | Uppercase, letter-spacing 1.5px |
+| Brand mark / logo text | Gotham | Bold | Per logo spec | All caps for brand mark |
+| H1 | Gotham | Bold | 56px | Hero headline only |
+| H2 (section heads) | Gotham | Bold | 36px | Section titles |
+| H3 (sub-heads) | Gotham | Medium | 24px | Service names, process steps, FAQ questions |
+| Body | Gotham | Regular | 17px | Line height 1.7, max-width 680px for readability |
+| Body bold | Gotham | Medium or Bold | 17px | Emphasis, labels |
+| Micro text | Gotham | Regular | 14px | Trust bar stats, captions, footer |
+| Button text | Gotham | Bold | 15px | Uppercase, letter-spacing 1.5px |
 
-**Google Fonts import:** `Playfair+Display:wght@600;700` and `DM+Sans:wght@400;500;600`
+**Font rule:** Gotham is the only font family used on the site. Use Regular, Medium, and Bold weights only.
 
 ### Design Principles
 
@@ -87,7 +87,7 @@ Single page, vertical scroll. Sections in this exact order:
 **Layout:** Fixed/sticky top bar. Logo left, anchor links centre or right, CTA button far right.
 
 **Elements:**
-- Brand mark: "Built In." (use Gotham/Montserrat, primary olive colour)
+- Brand mark: "Built In." (use Gotham, primary olive colour)
 - Anchor links: About · Services · Projects · Contact
 - CTA button: "Discuss Your Project" — scrolls to contact section
 - No phone number
@@ -121,9 +121,9 @@ CTA Button: Discuss Your Project → scrolls to #contact
 ```
 
 **Styling:**
-- H1: Playfair Display 700, 56px desktop / 36px mobile, `--color-text`
-- Subheadline: DM Sans 400, 20px desktop / 17px mobile, `--color-text-light`, max-width 560px
-- Micro-line: DM Sans 400, 14px, `--color-text-muted`, uppercase, letter-spacing 1px
+- H1: Gotham Bold, 56px desktop / 36px mobile, `--color-text`
+- Subheadline: Gotham Regular, 20px desktop / 17px mobile, `--color-text-light`, max-width 560px
+- Micro-line: Gotham Regular, 14px, `--color-text-muted`, uppercase, letter-spacing 1px
 - CTA: olive button, consistent with nav CTA
 - Hero image: if available, use as right-side panel or full-bleed background at 30% opacity with `--color-background` overlay. If no photo, use the architectural sketch illustration as a subtle background texture element.
 
@@ -147,8 +147,8 @@ CTA Button: Discuss Your Project → scrolls to #contact
 | Select Projects | Full Personal Oversight |
 
 **Styling:**
-- Stat number/keyword: Playfair Display 600, 24px, `--color-text`
-- Label: DM Sans 400, 13px, `--color-text-muted`, uppercase, letter-spacing 1px
+- Stat number/keyword: Gotham Medium, 24px, `--color-text`
+- Label: Gotham Regular, 13px, `--color-text-muted`, uppercase, letter-spacing 1px
 - Dividers between stats: 1px vertical line `--color-border`
 - Padding: 48px vertical
 - Mobile: 2x2 grid
@@ -297,9 +297,9 @@ give you clarity, confidence, and a direct line to the person building your home
 | 4 | Handover | When the build is complete, Josh walks you through every detail. The same person who met you at the start is the one handing you the keys at the end. |
 
 **Styling:**
-- Step numbers: Playfair Display 600, 48px, `--color-primary` (olive)
-- Step titles: DM Sans 600, 20px, `--color-text`
-- Descriptions: DM Sans 400, 16px, `--color-text-light`
+- Step numbers: Gotham Medium, 48px, `--color-primary` (olive)
+- Step titles: Gotham Medium, 20px, `--color-text`
+- Descriptions: Gotham Regular, 16px, `--color-text-light`
 - Connecting line between steps: 1px `--color-border`
 
 ---
@@ -333,9 +333,9 @@ Dalgetty, Murrumbeena, Sir Garnet, Hawsleigh, Neville, Moira, Liddiard.
 Instagram link: `https://www.instagram.com/builtin.melbourne`
 
 **Styling:**
-- Project name: Playfair Display 600, 28px, `--color-text`
-- Label (project type): DM Sans 500, 13px, `--color-primary`, uppercase, letter-spacing 1.5px
-- Description: DM Sans 400, 16px, `--color-text-light`
+- Project name: Gotham Medium, 28px, `--color-text`
+- Label (project type): Gotham Medium, 13px, `--color-primary`, uppercase, letter-spacing 1.5px
+- Description: Gotham Regular, 16px, `--color-text-light`
 - Image placeholder: `--color-border` background with "Image Pending" text centred, aspect ratio 4:3
 
 ---
@@ -362,9 +362,9 @@ H2: What Our Clients and Collaborators Say
 
 **Styling:**
 - Each card: `--color-surface` background, 1px `--color-border`, padding 32px
-- Placeholder text: DM Sans 400 italic, 16px, `--color-text-muted`
-- Attribution name: DM Sans 600, 15px, `--color-text`
-- Subtle quotation mark decorative element: Playfair Display, 72px, `--color-primary` at 15% opacity, positioned top-left of card
+- Placeholder text: Gotham Regular italic, 16px, `--color-text-muted`
+- Attribution name: Gotham Medium, 15px, `--color-text`
+- Subtle quotation mark decorative element: Gotham Bold, 72px, `--color-primary` at 15% opacity, positioned top-left of card
 
 ---
 
@@ -396,8 +396,8 @@ A: I'm based in Bayside Melbourne and most of my work is across the inner south-
 A: The best way is to start with a conversation. I meet every prospective client before any numbers are discussed. It's a chance for both of us to assess whether the project and the working relationship are the right fit. If they're not, I'll tell you honestly and early. There's no pressure and no obligation.
 
 **Styling:**
-- Question: DM Sans 600, 18px, `--color-text`, cursor pointer
-- Answer: DM Sans 400, 16px, `--color-text-light`, line-height 1.7
+- Question: Gotham Medium, 18px, `--color-text`, cursor pointer
+- Answer: Gotham Regular, 16px, `--color-text-light`, line-height 1.7
 - Expand/collapse icon: simple + / - or chevron, `--color-primary`
 - Border between items: 1px `--color-border`
 
@@ -455,8 +455,8 @@ The form will be built in GoHighLevel (GHL) and embedded. Style the embed contai
 
 **Form styling:**
 - Background: `--color-surface`
-- Inputs: border 1px `--color-border`, border-radius 4px, padding 12px 16px, font DM Sans 400 16px
-- Labels: DM Sans 500, 14px, `--color-text`, margin-bottom 6px
+- Inputs: border 1px `--color-border`, border-radius 4px, padding 12px 16px, font Gotham Regular 16px
+- Labels: Gotham Medium, 14px, `--color-text`, margin-bottom 6px
 - Dropdowns: same styling as text inputs, native select element (no custom dropdown libraries)
 - Focus state: border-color `--color-primary`
 
@@ -485,7 +485,7 @@ Privacy Policy
 **Styling:**
 - Background: `--color-text` (dark charcoal, inverted from page)
 - Text: `--color-background` (off-white on dark)
-- Font: DM Sans 400, 14px
+- Font: Gotham Regular, 14px
 - Links: underline on hover
 - Padding: 64px vertical
 
@@ -565,7 +565,7 @@ Implement the following schema types:
 
 | Asset | Status | Fallback |
 |-------|--------|----------|
-| Logo (SVG or high-res PNG) | Pending | Use Gotham/Montserrat text brand mark |
+| Logo (SVG or high-res PNG) | Pending | Use Gotham text brand mark |
 | Project photos (Fawkner, Mary, Henry) | Pending | Image placeholder containers |
 | Photo of Josh | Pending | Use architectural sketch illustration |
 | Architectural sketch illustration | Cleared for use | Use as background texture / design element |

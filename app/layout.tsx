@@ -1,20 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-body",
-  display: "swap"
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-display",
-  display: "swap"
-});
 
 const title = "Built In. Melbourne | High-End Architectural Builder, Bayside Melbourne";
 const description =
@@ -72,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU" className={`${dmSans.variable} ${playfair.variable}`}>
+    <html lang="en-AU">
       <body>{children}</body>
     </html>
   );
