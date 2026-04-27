@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface CarouselImage {
   src: string;
@@ -68,12 +67,6 @@ export default function ProjectCarousel({ images, ariaLabel }: ProjectCarouselPr
 
       {images.length > 1 && (
         <>
-          <button className="carousel-btn carousel-btn--prev" onClick={prev} aria-label="Previous image">
-            <ChevronLeft size={18} strokeWidth={2.5} />
-          </button>
-          <button className="carousel-btn carousel-btn--next" onClick={next} aria-label="Next image">
-            <ChevronRight size={18} strokeWidth={2.5} />
-          </button>
           <div className="carousel-dots" role="tablist" aria-label="Go to image">
             {images.map((_, i) => (
               <button
