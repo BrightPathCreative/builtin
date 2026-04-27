@@ -538,15 +538,17 @@ nav a:hover::after,
 }
 
 .process-step span {
-  color: var(--color-cream);
   display: block;
-  font-family: var(--font-gotham);
-  font-size: clamp(5rem, 9vw, 8rem);
-  font-weight: 700;
-  letter-spacing: -0.06em;
-  line-height: 0.85;
-  margin-bottom: 1.5rem;
-  opacity: 0.18;
+  margin-bottom: 1.75rem;
+  width: 64px;
+}
+
+.process-step span img {
+  display: block;
+  filter: brightness(0) invert(1);
+  height: auto;
+  opacity: 0.55;
+  width: 100%;
 }
 
 .process-step h3 {
@@ -1126,8 +1128,13 @@ html.js-ready .reveal--visible {
 /* ── Process step h3 ─────────────────────────────────────── */
 
 .process-step h3 {
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
   margin-bottom: 0.85rem;
+}
+
+.process-step span {
+  color: transparent;
+  font-size: 0;
 }
 
 /* ── Footer refinement ───────────────────────────────────── */

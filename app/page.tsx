@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ProjectCarousel, { type CarouselImage } from "./components/ProjectCarousel";
 import HeroCarousel from "./components/HeroCarousel";
 
@@ -294,9 +295,18 @@ export default function Home() {
             <h2>One Point of Contact. Start to Finish.</h2>
           </div>
           <div className="process-grid">
-            {processSteps.map((step, index) => (
+            {processSteps.map((step) => (
               <article className="process-step reveal" key={step.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>
+                  <Image
+                    src="/images/built-in-melbourne-architectural-logo.png"
+                    alt=""
+                    width={72}
+                    height={54}
+                    aria-hidden="true"
+                    style={{ objectFit: "contain", width: "100%", height: "auto" }}
+                  />
+                </span>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
               </article>
