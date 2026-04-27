@@ -93,8 +93,8 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2.45rem, 5.2vw, 5rem);
-  letter-spacing: -0.055em;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  letter-spacing: -0.04em;
 }
 
 h3 {
