@@ -1081,3 +1081,56 @@ footer a {
     border-top: 0;
   }
 }
+
+/* ── Animated Architectural Lines ─────────────────────────────────────────── */
+
+.animated-building-section {
+  background: var(--color-cream);
+  border-top: 1px solid rgba(95, 101, 68, 0.12);
+  overflow: hidden;
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  width: 100%;
+}
+
+.animated-building-inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 0 4vw;
+}
+
+.animated-building-eyebrow {
+  color: var(--color-green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.animated-building-svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 860px;
+}
+
+.animated-building-label {
+  color: var(--color-green);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  margin-top: 2rem;
+  opacity: 0.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 620px) {
+  .animated-building-svg {
+    width: 100%;
+  }
+}

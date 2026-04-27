@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ProjectCarousel, { type CarouselImage } from "./components/ProjectCarousel";
+import AnimatedBuilding from "./components/AnimatedBuilding";
 
 const faqs = [
   {
@@ -243,6 +244,8 @@ export default function Home() {
             <p>Built In. Melbourne</p>
           </div>
         </section>
+
+        <AnimatedBuilding />
 
         <section className="trust-bar" aria-label="Builder credentials">
           <div>
