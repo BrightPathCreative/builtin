@@ -250,7 +250,7 @@ export default function Home() {
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </span>
             <strong>16 Years</strong>
-            <span>Experience</span>
+            <span>Trading &amp; Building</span>
           </div>
           <div>
             <span className="trust-bar__icon" aria-hidden="true">
@@ -261,10 +261,10 @@ export default function Home() {
           </div>
           <div>
             <span className="trust-bar__icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
             </span>
-            <strong>Select Projects</strong>
-            <span>Full Personal Oversight</span>
+            <strong>One Contact</strong>
+            <span>Start to Finish</span>
           </div>
         </section>
 

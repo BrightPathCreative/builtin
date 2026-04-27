@@ -42,23 +42,22 @@ const BackToTop: React.FC = () => {
 
   if (!isVisible) return null;
 
-  const size = 56;
-  const strokeWidth = 3;
+  const size = 36;
+  const strokeWidth = 2.5;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (scrollProgress / 100) * circumference;
 
-  // Brand colours: green #5f6544, cream #ebe4da
   return (
     <button
       onClick={scrollToTop}
       aria-label="Back to top"
       style={{
         position: 'fixed',
-        bottom: '32px',
-        right: '32px',
+        bottom: '28px',
+        right: '28px',
         zIndex: 9999,
-        backgroundColor: '#5f6544',
+        backgroundColor: '#ebe4da',
         width: `${size}px`,
         height: `${size}px`,
         borderRadius: '50%',
@@ -67,7 +66,7 @@ const BackToTop: React.FC = () => {
         justifyContent: 'center',
         border: 'none',
         outline: 'none',
-        opacity: 0.9,
+        opacity: 0.92,
         transition: 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
         padding: 0,
         cursor: 'pointer',
@@ -76,11 +75,11 @@ const BackToTop: React.FC = () => {
         (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.1)';
         (e.currentTarget as HTMLButtonElement).style.opacity = '1';
         (e.currentTarget as HTMLButtonElement).style.boxShadow =
-          '0 4px 20px rgba(95, 101, 68, 0.45)';
+          '0 4px 16px rgba(95, 101, 68, 0.35)';
       }}
       onMouseLeave={e => {
         (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)';
-        (e.currentTarget as HTMLButtonElement).style.opacity = '0.9';
+        (e.currentTarget as HTMLButtonElement).style.opacity = '0.92';
         (e.currentTarget as HTMLButtonElement).style.boxShadow = 'none';
       }}
     >
@@ -94,7 +93,7 @@ const BackToTop: React.FC = () => {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(235, 228, 218, 0.2)"
+          stroke="rgba(95, 101, 68, 0.2)"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -102,7 +101,7 @@ const BackToTop: React.FC = () => {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#ebe4da"
+          stroke="#5f6544"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
@@ -110,7 +109,7 @@ const BackToTop: React.FC = () => {
           style={{ transition: 'stroke-dashoffset 0.1s linear' }}
         />
       </svg>
-      <ArrowUp size={22} strokeWidth={2.5} color="#ebe4da" style={{ position: 'relative', zIndex: 1 }} />
+      <ArrowUp size={14} strokeWidth={2.5} color="#5f6544" style={{ position: 'relative', zIndex: 1 }} />
     </button>
   );
 };
