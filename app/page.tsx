@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const faqs = [
   {
     question: "What does a high-spec renovation actually involve?",
@@ -75,6 +77,29 @@ const projects = [
   }
 ];
 
+const processSteps = [
+  {
+    title: "Meet",
+    text:
+      "A first conversation to understand the project, expectations, and whether the working relationship is the right fit."
+  },
+  {
+    title: "Tender",
+    text:
+      "A staged tendering process that refines scope, numbers, buildability, and cost efficiency before construction begins."
+  },
+  {
+    title: "Build",
+    text:
+      "Josh is on site, communicating weekly with clients and design teams, and holding every trade to the same standard."
+  },
+  {
+    title: "Handover",
+    text:
+      "The same person who met you at the start walks you through every detail at completion."
+  }
+];
+
 const testimonials = [
   {
     quote:
@@ -136,22 +161,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="Built In. Melbourne home">
-          Built In.
-          <span>Melbourne</span>
-        </a>
-        <nav aria-label="Primary navigation">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <a className="button button-small" href="#contact">
-          Discuss Your Project
-        </a>
-      </header>
-
       <main id="top">
         <section className="hero section-shell">
           <div className="hero-copy reveal">
@@ -163,9 +172,9 @@ export default function Home() {
               delivered.
             </p>
             <div className="hero-actions">
-              <a className="button" href="#contact">
+              <Link className="button" href="/contact">
                 Discuss Your Project
-              </a>
+              </Link>
               <a className="text-link" href="#projects">
                 View selected work
               </a>
@@ -256,20 +265,11 @@ export default function Home() {
             <h2>One Point of Contact. Start to Finish.</h2>
           </div>
           <div className="process-grid">
-            {["Meet", "Tender", "Build", "Handover"].map((step, index) => (
-              <article className="process-step reveal" key={step}>
+            {processSteps.map((step, index) => (
+              <article className="process-step reveal" key={step.title}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step}</h3>
-                <p>
-                  {index === 0 &&
-                    "A first conversation to understand the project, expectations, and whether the working relationship is the right fit."}
-                  {index === 1 &&
-                    "A staged tendering process that refines scope, numbers, buildability, and cost efficiency before construction begins."}
-                  {index === 2 &&
-                    "Josh is on site, communicating weekly with clients and design teams, and holding every trade to the same standard."}
-                  {index === 3 &&
-                    "The same person who met you at the start walks you through every detail at completion."}
-                </p>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
               </article>
             ))}
           </div>
@@ -330,46 +330,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        <section className="section-shell contact" id="contact">
-          <div className="contact-copy reveal">
-            <p className="eyebrow">Contact</p>
-            <h2>Let&apos;s Talk About Your Project.</h2>
-            <p>
-              If you&apos;re planning an architectural renovation or new build across
-              Bayside Melbourne, Josh would welcome the opportunity to discuss it. No
-              obligation. No pressure. Just a straightforward conversation.
-            </p>
-            <p className="contact-detail">
-              <strong>Email:</strong>{" "}
-              <a href="mailto:josh@builtinmelbourne.com.au">
-                josh@builtinmelbourne.com.au
-              </a>
-              <br />
-              <strong>Instagram:</strong>{" "}
-              <a href="https://www.instagram.com/builtin.melbourne">
-                @builtin.melbourne
-              </a>
-            </p>
-          </div>
-          <div className="form-placeholder reveal" aria-label="Future enquiry form">
-            <p className="eyebrow">Enquiry Form</p>
-            <h3>GHL form will be embedded here.</h3>
-            <p>
-              Once the GoHighLevel iframe is supplied, this panel can be replaced with
-              the live form while retaining the same spacing and visual treatment.
-            </p>
-          </div>
-        </section>
       </main>
-
-      <footer>
-        <p>
-          Built In. Melbourne Pty Ltd / ABN 54 610 132 486 / Registered Domestic
-          Builder (Unlimited) / CDB-U 58374
-        </p>
-        <p>© 2026 Built In. Melbourne. All rights reserved.</p>
-      </footer>
     </>
   );
 }

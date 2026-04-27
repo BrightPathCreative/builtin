@@ -89,7 +89,7 @@ Single page, vertical scroll. Sections in this exact order:
 **Elements:**
 - Brand mark: "Built In." (use Gotham, primary olive colour)
 - Anchor links: About · Services · Projects · Contact
-- CTA button: "Discuss Your Project" — scrolls to contact section
+- CTA button: "Discuss Your Project" — links to `/contact`
 - No phone number
 
 **Mobile:** Hamburger menu. Sticky bar with brand mark and "Discuss Your Project" button visible at all times during scroll.
@@ -117,7 +117,7 @@ Every detail, personally delivered.
 
 Micro-line: Registered Domestic Builder (Unlimited) · CDB-U 58374 · 16 Years Experience
 
-CTA Button: Discuss Your Project → scrolls to #contact
+CTA Button: Discuss Your Project → links to /contact
 ```
 
 **Styling:**
@@ -405,14 +405,16 @@ A: The best way is to start with a conversation. I meet every prospective client
 
 ---
 
-### 10. Contact / CTA
+### 10. Contact Page / CTA
+
+**Route:** `/contact`
 
 **Layout:** Two columns on desktop. Left: heading, intro text, alternative contact details. Right: contact form. Full width on mobile with form below text.
 
 **Content (left column):**
 
 ```
-H2: Let's Talk About Your Project.
+H1: Let's Talk About Your Project.
 
 If you're planning an architectural renovation or new build across Bayside
 Melbourne, Josh would welcome the opportunity to discuss it. No obligation.
