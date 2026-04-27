@@ -104,19 +104,22 @@ const projects: Project[] = [
     title: "The Fawkner Residence",
     label: "Architectural Renovation / Heritage Sensitive",
     text:
-      "A heritage site with one original wall retained, reimagined as a coastal modern home designed to maximise light, space, and site coverage."
+      "A heritage site with one original wall retained, reimagined as a coastal modern home designed to maximise light, space, and site coverage.",
+    images: [{ src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-ensuite-shower-enclosure-marble.png", alt: "Placeholder – The Fawkner Residence by Built In. Melbourne" }]
   },
   {
     title: "The Mary Residence",
     label: "Architectural Renovation",
     text:
-      "A full-scale renovation delivering a modern, sleek aesthetic through clean lines, considered material selections, and direct builder oversight."
+      "A full-scale renovation delivering a modern, sleek aesthetic through clean lines, considered material selections, and direct builder oversight.",
+    images: [{ src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-bathroom-vanity-marble-brass.png", alt: "Placeholder – The Mary Residence by Built In. Melbourne" }]
   },
   {
     title: "The Henry Residence",
     label: "Architectural Renovation",
     text:
-      "A contemporary renovation with a refined modern direction, delivered with Josh as the sole point of contact from first meeting through to handover."
+      "A contemporary renovation with a refined modern direction, delivered with Josh as the sole point of contact from first meeting through to handover.",
+    images: [{ src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-kitchen-brass-sink-marble-splashback.png", alt: "Placeholder – The Henry Residence by Built In. Melbourne" }]
   }
 ];
 
@@ -223,18 +226,14 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="hero-panel reveal" aria-label="Built In. Melbourne architectural illustration">
-            <div className="sketch-frame">
-              <div style={{ position: "relative", width: "100%", height: "100%" }}>
-                <Image
-                  src="/images/built-in-melbourne-architectural-logo.png"
-                  alt="Built In. Melbourne – architectural line illustration representing precision residential construction"
-                  fill
-                  style={{ objectFit: "contain", padding: "1.25rem" }}
-                  priority
-                />
-              </div>
-            </div>
+          <div className="hero-panel reveal" aria-label="Murrumbeena Residence – architectural renovation by Built In. Melbourne">
+            <Image
+              src="/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-kitchen-window-seat.png"
+              alt="High-spec kitchen renovation by Built In. Melbourne – navy cabinetry, window seat and marble benchtops"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
             <div className="hero-specs" aria-hidden="true">
               <span>Bayside Melbourne</span>
               <span>Architectural Renovations</span>

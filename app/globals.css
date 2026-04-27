@@ -87,8 +87,8 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(3.7rem, 9vw, 8.8rem);
-  letter-spacing: -0.075em;
+  font-size: clamp(2.6rem, 5.5vw, 5.8rem);
+  letter-spacing: -0.065em;
   max-width: 900px;
 }
 
@@ -271,6 +271,19 @@ nav a:hover::after,
   transform: rotate(1.25deg);
 }
 
+.hero-panel::after {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 55%,
+    transparent 100%
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
 .hero-panel p {
   color: var(--color-cream);
   font-family: var(--font-gotham);
@@ -280,7 +293,7 @@ nav a:hover::after,
   line-height: 0.95;
   max-width: 10ch;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hero-specs {
@@ -291,7 +304,7 @@ nav a:hover::after,
   position: absolute;
   right: 2rem;
   top: 2rem;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hero-specs span {
