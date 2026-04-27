@@ -234,12 +234,6 @@ export default function Home() {
               style={{ objectFit: "cover" }}
               priority
             />
-            <div className="hero-specs" aria-hidden="true">
-              <span>Bayside Melbourne</span>
-              <span>Architectural Renovations</span>
-              <span>Bespoke New Builds</span>
-            </div>
-            <p>Built In. Melbourne</p>
           </div>
         </section>
 
