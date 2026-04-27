@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const faqs = [
   {
@@ -183,14 +182,6 @@ export default function Home() {
           </div>
           <div className="hero-panel reveal" aria-label="Architectural sketch study">
             <div className="sketch-frame">
-              <Image
-                className="hero-sketch"
-                src="/images/architectural-sketch.png"
-                alt="Architectural concept sketch for a refined residential build"
-                width={819}
-                height={1024}
-                priority
-              />
               <div className="sketch-trace" aria-hidden="true">
                 <span>Existing Datum</span>
                 <span>New Living Axis</span>
