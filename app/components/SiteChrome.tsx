@@ -43,6 +43,24 @@ export function SiteFooter() {
         &copy; 2026 Built In. Melbourne. All rights reserved.{" "}
         <Link href="/privacy">Privacy</Link>
       </p>
+      <a
+        href="https://brightpathcreative.com.au"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: "absolute",
+          bottom: "1.25rem",
+          right: "1.5rem",
+          fontSize: "0.65rem",
+          fontWeight: 300,
+          letterSpacing: "0.03em",
+          color: "inherit",
+          opacity: 0.45,
+          textDecoration: "none",
+        }}
+      >
+        designed by Bright Path Creative
+      </a>
     </footer>
   );
 }
