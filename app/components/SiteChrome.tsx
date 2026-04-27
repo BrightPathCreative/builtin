@@ -25,7 +25,7 @@ export function SiteHeader() {
         <Link href="/#projects">Projects</Link>
       </nav>
       <Link className="button button-small" href="/contact">
-        Discuss Your Project
+        Discuss My Project
       </Link>
     </header>
   );

@@ -73,7 +73,7 @@ export default function HeroCarousel() {
           </p>
           <div className="hero-actions">
             <Link className="button" href="/contact">
-              Discuss Your Project
+              Discuss My Project
             </Link>
             <a className="text-link" href="#projects">
               View selected work
