@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import BackToTop from "./components/BackToTop";
 import "./globals.css";
 
 const title = "Built In. Melbourne | High-End Architectural Builder, Bayside Melbourne";
@@ -63,6 +64,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <BackToTop />
       </body>
     </html>
   );
