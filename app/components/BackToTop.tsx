@@ -48,6 +48,7 @@ const BackToTop: React.FC = () => {
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (scrollProgress / 100) * circumference;
 
+  // Brand colours: green #5f6544, cream #ebe4da
   return (
     <button
       onClick={scrollToTop}
@@ -57,7 +58,7 @@ const BackToTop: React.FC = () => {
         bottom: '32px',
         right: '32px',
         zIndex: 9999,
-        backgroundColor: '#ccff00',
+        backgroundColor: '#5f6544',
         width: `${size}px`,
         height: `${size}px`,
         borderRadius: '50%',
@@ -67,15 +68,15 @@ const BackToTop: React.FC = () => {
         border: 'none',
         outline: 'none',
         opacity: 0.9,
-        transition: 'opacity 0.3s ease, transform 0.3s ease',
+        transition: 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
         padding: 0,
-        cursor: 'none',
+        cursor: 'pointer',
       }}
       onMouseEnter={e => {
         (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.1)';
         (e.currentTarget as HTMLButtonElement).style.opacity = '1';
         (e.currentTarget as HTMLButtonElement).style.boxShadow =
-          '0 0 12px 4px rgba(168, 85, 247, 0.6)';
+          '0 4px 20px rgba(95, 101, 68, 0.45)';
       }}
       onMouseLeave={e => {
         (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)';
@@ -93,7 +94,7 @@ const BackToTop: React.FC = () => {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(168, 85, 247, 0.2)"
+          stroke="rgba(235, 228, 218, 0.2)"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -101,18 +102,15 @@ const BackToTop: React.FC = () => {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#a855f7"
+          stroke="#ebe4da"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeLinecap="round"
-          style={{
-            transition: 'stroke-dashoffset 0.1s linear',
-            filter: 'drop-shadow(0 0 4px #a855f7) drop-shadow(0 0 8px #a855f7)',
-          }}
+          style={{ transition: 'stroke-dashoffset 0.1s linear' }}
         />
       </svg>
-      <ArrowUp size={24} strokeWidth={3} color="#000" style={{ position: 'relative', zIndex: 1 }} />
+      <ArrowUp size={22} strokeWidth={2.5} color="#ebe4da" style={{ position: 'relative', zIndex: 1 }} />
     </button>
   );
 };
