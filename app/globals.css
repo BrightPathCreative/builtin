@@ -7,6 +7,38 @@
   --radius-card: 28px;
 }
 
+@font-face {
+  font-display: swap;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Gotham-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Gotham-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Gotham-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Gotham-Bold.otf") format("opentype");
+}
+
 * {
   box-sizing: border-box;
 }
@@ -20,7 +52,7 @@ body {
   color: var(--color-black);
   font-family: var(--font-gotham);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.65;
   margin: 0;
   overflow-x: hidden;
@@ -72,7 +104,7 @@ h3 {
 
 p {
   color: var(--color-black);
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {
