@@ -23,6 +23,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer>
+      <p className="footer-brand">Built In. Melbourne</p>
       <p>
         Built In. Melbourne Pty Ltd / ABN 54 610 132 486 / Registered Domestic
         Builder (Unlimited) / CDB-U 58374

@@ -29,6 +29,16 @@ export default function ContactPage() {
               @builtin.melbourne
             </a>
           </p>
+          <div className="contact-rhythm" aria-label="What happens next">
+            <p>
+              <span>01 / First Conversation</span>
+              Project intent, timing, site context, and fit.
+            </p>
+            <p>
+              <span>02 / Early Builder Input</span>
+              Buildability, scope clarity, and the realities behind the drawings.
+            </p>
+          </div>
         </div>
         <div className="form-placeholder reveal" aria-label="Future enquiry form">
           <p className="eyebrow">Enquiry Form</p>

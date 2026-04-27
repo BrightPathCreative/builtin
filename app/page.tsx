@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -180,8 +181,27 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="hero-panel reveal" aria-label="Architectural line illustration">
-            <div className="plan-lines" />
+          <div className="hero-panel reveal" aria-label="Architectural sketch study">
+            <div className="sketch-frame">
+              <Image
+                className="hero-sketch"
+                src="/images/architectural-sketch.png"
+                alt="Architectural concept sketch for a refined residential build"
+                width={819}
+                height={1024}
+                priority
+              />
+              <div className="sketch-trace" aria-hidden="true">
+                <span>Existing Datum</span>
+                <span>New Living Axis</span>
+                <span>Light Court</span>
+              </div>
+            </div>
+            <div className="hero-specs" aria-hidden="true">
+              <span>Bayside Melbourne</span>
+              <span>Architectural Renovations</span>
+              <span>Bespoke New Builds</span>
+            </div>
             <p>Built In. Melbourne</p>
           </div>
         </section>
@@ -288,6 +308,10 @@ export default function Home() {
                   <p className="project-label">{project.label}</p>
                   <h3>{project.title}</h3>
                   <p>{project.text}</p>
+                  <div className="project-meta" aria-label="Project qualities">
+                    <span>Direct Builder Oversight</span>
+                    <span>Detail Led</span>
+                  </div>
                 </div>
               </article>
             ))}
