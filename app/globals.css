@@ -155,9 +155,9 @@ nav {
 
 nav a,
 .text-link {
-  color: var(--color-black);
+  color: var(--color-green);
   font-size: 0.84rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.08em;
   position: relative;
   text-transform: uppercase;

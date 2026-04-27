@@ -11,7 +11,6 @@ export function SiteHeader() {
         <Link href="/#about">About</Link>
         <Link href="/#services">Services</Link>
         <Link href="/#projects">Projects</Link>
-        <Link href="/contact">Contact</Link>
       </nav>
       <Link className="button button-small" href="/contact">
         Discuss Your Project
