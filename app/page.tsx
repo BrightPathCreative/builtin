@@ -353,10 +353,6 @@ export default function Home() {
                   <p className="project-label">{project.label}</p>
                   <h3>{project.title}</h3>
                   <p>{project.text}</p>
-                  <div className="project-meta" aria-label="Project qualities">
-                    <span>Direct Builder Oversight</span>
-                    <span>Detail Led</span>
-                  </div>
                 </div>
               </article>
             ))}
