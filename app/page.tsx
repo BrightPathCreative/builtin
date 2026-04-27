@@ -159,6 +159,12 @@ const testimonials = [
       "It's always a pleasure working with Josh from Built In Melbourne on our interior design projects. He's incredibly friendly, easy to get along with, and brings a great attitude to every collaboration. He genuinely respects the design intent we set out in our design and documentation, and works to see it through to fruition. Communication is always quick and constructive, and he has a fantastic team behind him.",
     source: "Nina Matyas",
     role: "Interior Designer"
+  },
+  {
+    quote:
+      "We truly couldn't have built the home of our dreams if it wasn't for Josh. He worked with us every step of the way, problem solving and adapting to enable us to get the job done. His warm, calm approach was a constant throughout the project, even getting us through the huge hurdle of a covid lockdown build, while we were living onsite!",
+    source: "Kate Bednarz",
+    role: "Neville St Client"
   }
 ];
 
