@@ -45,12 +45,12 @@ Single-page landing page for **Built In. Melbourne** (builtinmelbourne.com.au), 
 | H1 | Gotham | Bold | 56px | Hero headline only |
 | H2 (section heads) | Gotham | Bold | 36px | Section titles |
 | H3 (sub-heads) | Gotham | Medium | 24px | Service names, process steps, FAQ questions |
-| Body | Gotham | Regular | 17px | Line height 1.7, max-width 680px for readability |
+| Body | Gotham | Light | 17px | Line height 1.7, max-width 680px for readability |
 | Body bold | Gotham | Medium or Bold | 17px | Emphasis, labels |
-| Micro text | Gotham | Regular | 14px | Trust bar stats, captions, footer |
+| Micro text | Gotham | Light | 14px | Trust bar stats, captions, footer |
 | Button text | Gotham | Bold | 15px | Uppercase, letter-spacing 1.5px |
 
-**Font rule:** Gotham is the only font family used on the site. Use Regular, Medium, and Bold weights only.
+**Font rule:** Gotham is the only font family used on the site. Use Light, Regular, Medium, and Bold weights only.
 
 ### Design Principles
 

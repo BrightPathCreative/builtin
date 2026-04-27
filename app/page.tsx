@@ -75,6 +75,21 @@ const projects = [
   }
 ];
 
+const testimonials = [
+  {
+    quote:
+      "As a design practice, contractor selection and direct collaboration with the builder is fundamental to how we deliver our projects. It ensures not only a high level of finish, but also that our clients are supported through a transparent and well-managed construction process. Studio Welgus has built a long-standing relationship with Josh and his team. Their communication, professionalism and attention to detail consistently resonate with our clients, who often comment on how seamless and collaborative the experience feels.",
+    source: "Michael Welgus",
+    role: "Principal, Studio Welgus"
+  },
+  {
+    quote:
+      "It's always a pleasure working with Josh from Built In Melbourne on our interior design projects. He's incredibly friendly, easy to get along with, and brings a great attitude to every collaboration. He genuinely respects the design intent we set out in our design and documentation, and works to see it through to fruition. Communication is always quick and constructive, and he has a fantastic team behind him.",
+    source: "Nina Matyas",
+    role: "Interior Designer"
+  }
+];
+
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
@@ -289,14 +304,15 @@ export default function Home() {
             <h2>What Clients and Collaborators Say</h2>
           </div>
           <div className="testimonial-grid">
-            {["Neville Street Clients", "Beaumaris Clients", "Welgus Studios"].map(
-              (source) => (
-                <figure className="testimonial-card reveal" key={source}>
-                  <blockquote>Testimonial pending.</blockquote>
-                  <figcaption>{source}</figcaption>
-                </figure>
-              )
-            )}
+            {testimonials.map((testimonial) => (
+              <figure className="testimonial-card reveal" key={testimonial.source}>
+                <blockquote>{testimonial.quote}</blockquote>
+                <figcaption>
+                  {testimonial.source}
+                  <span>{testimonial.role}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 
