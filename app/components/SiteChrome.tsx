@@ -1,8 +1,20 @@
+'use client';
+
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export function SiteHeader() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="site-header">
+    <header className={`site-header${scrolled ? ' site-header--scrolled' : ''}`}>
       <Link className="brand" href="/" aria-label="Built In. Melbourne home">
         Built In.
         <span>Melbourne</span>

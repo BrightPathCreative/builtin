@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import ProjectCarousel, { type CarouselImage } from "./components/ProjectCarousel";
+import HeroCarousel from "./components/HeroCarousel";
 
 const faqs = [
   {
@@ -207,35 +207,8 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <HeroCarousel />
       <main id="top">
-        <section className="hero section-shell">
-          <div className="hero-copy reveal">
-            <p className="eyebrow">Registered Domestic Builder / CDB-U 58374</p>
-            <h1>Quality Comes From Being Present.</h1>
-            <p className="hero-lede">
-              High-spec architectural renovations and bespoke new builds across Bayside
-              Melbourne. One builder. One point of contact. Every detail, personally
-              delivered.
-            </p>
-            <div className="hero-actions">
-              <Link className="button" href="/contact">
-                Discuss Your Project
-              </Link>
-              <a className="text-link" href="#projects">
-                View selected work
-              </a>
-            </div>
-          </div>
-          <div className="hero-panel reveal" aria-label="Murrumbeena Residence – architectural renovation by Built In. Melbourne">
-            <Image
-              src="/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-kitchen-window-seat.png"
-              alt="High-spec kitchen renovation by Built In. Melbourne – navy cabinetry, window seat and marble benchtops"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
-          </div>
-        </section>
 
         <section className="trust-bar" aria-label="Builder credentials">
           <div>
