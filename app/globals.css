@@ -540,7 +540,7 @@ nav a:hover::after,
 .process-step span {
   display: block;
   margin-bottom: 1.75rem;
-  width: 64px;
+  width: 128px;
 }
 
 .process-step span img {
