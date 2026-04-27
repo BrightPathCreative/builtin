@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import ProjectCarousel, { type CarouselImage } from "./components/ProjectCarousel";
 
 const faqs = [
   {
@@ -56,7 +58,48 @@ const services = [
   }
 ];
 
-const projects = [
+interface Project {
+  title: string;
+  label: string;
+  text: string;
+  images?: CarouselImage[];
+}
+
+const murrumbeenaImages: CarouselImage[] = [
+  {
+    src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-kitchen-window-seat.png",
+    alt: "Murrumbeena Residence kitchen renovation by Built In. Melbourne – navy cabinetry, window seat, brass hardware and marble benchtops"
+  },
+  {
+    src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-kitchen-brass-sink-marble-splashback.png",
+    alt: "Murrumbeena Residence kitchen detail by Built In. Melbourne – undermount brass sink and full-height Calacatta marble splashback"
+  },
+  {
+    src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-laundry-custom-joinery-brass.png",
+    alt: "Murrumbeena Residence laundry by Built In. Melbourne – custom navy joinery, open timber shelving and brass butler sink"
+  },
+  {
+    src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-bathroom-vanity-marble-brass.png",
+    alt: "Murrumbeena Residence bathroom vanity by Built In. Melbourne – bespoke grey cabinetry, Carrara marble benchtop and brass wall sconces"
+  },
+  {
+    src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-ensuite-marble-shower-brass.png",
+    alt: "Murrumbeena Residence ensuite by Built In. Melbourne – marble subway tiles, brass rail shower and harlequin marble floor"
+  },
+  {
+    src: "/images/murrumbeena-residence/built-in-melbourne-murrumbeena-residence-ensuite-shower-enclosure-marble.png",
+    alt: "Murrumbeena Residence ensuite shower enclosure by Built In. Melbourne – full Carrara marble tile, frameless glass and brass fittings"
+  }
+];
+
+const projects: Project[] = [
+  {
+    title: "Murrumbeena Residence",
+    label: "Architectural Renovation",
+    text:
+      "A full-scale renovation delivered across kitchen, laundry, bathroom, and ensuite. Custom joinery in navy and sage, brass hardware throughout, Carrara marble benchtops and splashbacks, and harlequin marble flooring — every detail personally overseen by Josh.",
+    images: murrumbeenaImages
+  },
   {
     title: "The Fawkner Residence",
     label: "Architectural Renovation / Heritage Sensitive",
@@ -180,12 +223,16 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="hero-panel reveal" aria-label="Architectural sketch study">
+          <div className="hero-panel reveal" aria-label="Built In. Melbourne architectural illustration">
             <div className="sketch-frame">
-              <div className="sketch-trace" aria-hidden="true">
-                <span>Existing Datum</span>
-                <span>New Living Axis</span>
-                <span>Light Court</span>
+              <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                <Image
+                  src="/images/built-in-melbourne-architectural-logo.png"
+                  alt="Built In. Melbourne – architectural line illustration representing precision residential construction"
+                  fill
+                  style={{ objectFit: "contain", padding: "1.25rem" }}
+                  priority
+                />
               </div>
             </div>
             <div className="hero-specs" aria-hidden="true">
@@ -199,18 +246,23 @@ export default function Home() {
 
         <section className="trust-bar" aria-label="Builder credentials">
           <div>
+            <span className="trust-bar__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
             <strong>16 Years</strong>
             <span>Experience</span>
           </div>
           <div>
-            <strong>CDB-U 58374</strong>
-            <span>Registered Domestic Builder</span>
-          </div>
-          <div>
+            <span className="trust-bar__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
             <strong>On Site</strong>
             <span>Personally, Every Project</span>
           </div>
           <div>
+            <span className="trust-bar__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
             <strong>Select Projects</strong>
             <span>Full Personal Oversight</span>
           </div>
@@ -294,7 +346,16 @@ export default function Home() {
           <div className="project-list">
             {projects.map((project) => (
               <article className="project-card reveal" key={project.title}>
-                <div className="image-placeholder">Image Pending</div>
+                <div className="project-image-slot">
+                  {project.images && project.images.length > 0 ? (
+                    <ProjectCarousel
+                      images={project.images}
+                      ariaLabel={`${project.title} – project photography`}
+                    />
+                  ) : (
+                    <div className="image-placeholder">Image Pending</div>
+                  )}
+                </div>
                 <div>
                   <p className="project-label">{project.label}</p>
                   <h3>{project.title}</h3>

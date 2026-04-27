@@ -316,8 +316,8 @@ nav a:hover::after,
 }
 
 .sketch-frame {
-  background: var(--color-black);
-  border: 1px solid var(--color-cream);
+  background: var(--color-cream);
+  border: 1px solid rgba(235, 228, 218, 0.35);
   border-radius: 22px;
   inset: clamp(5.8rem, 8vw, 7.6rem) 1.5rem 1.5rem;
   overflow: hidden;
@@ -406,19 +406,26 @@ nav a:hover::after,
   border-block: 1px solid var(--color-green);
   color: var(--color-cream);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: 0 auto;
   max-width: 100%;
   padding: 2.45rem 4vw;
 }
 
 .trust-bar div {
-  border-left: 1px solid var(--color-cream);
-  padding: 0 1.5rem;
+  border-left: 1px solid rgba(var(--color-cream-rgb, 245 240 230) / 0.35);
+  padding: 0 2rem;
 }
 
 .trust-bar div:first-child {
   border-left: 0;
+}
+
+.trust-bar__icon {
+  color: var(--color-cream);
+  display: block;
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
 }
 
 .trust-bar strong,
@@ -429,15 +436,17 @@ nav a:hover::after,
 
 .trust-bar strong {
   font-family: var(--font-gotham);
-  font-size: clamp(1.45rem, 2.3vw, 2.15rem);
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
 }
 
 .trust-bar span {
-  font-size: 0.76rem;
-  letter-spacing: 0.12em;
-  margin-top: 0.45rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  margin-top: 0.4rem;
+  opacity: 0.75;
   text-transform: uppercase;
 }
 
@@ -642,6 +651,94 @@ nav a:hover::after,
 
 .instagram-note {
   margin-top: 1.5rem;
+}
+
+.project-image-slot {
+  min-width: 0;
+}
+
+.project-card:nth-child(even) .project-image-slot {
+  order: 2;
+}
+
+/* ── Carousel ─────────────────────────────────────────── */
+
+.carousel {
+  aspect-ratio: 4 / 3;
+  background: var(--color-green);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.carousel-slide {
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 800ms ease;
+}
+
+.carousel-slide--active {
+  opacity: 1;
+}
+
+.carousel-btn {
+  align-items: center;
+  backdrop-filter: blur(4px);
+  background: rgba(235, 228, 218, 0.82);
+  border: none;
+  border-radius: 50%;
+  color: var(--color-green);
+  cursor: pointer;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 180ms ease, transform 180ms ease;
+  width: 36px;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: var(--color-cream);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn--prev {
+  left: 0.7rem;
+}
+
+.carousel-btn--next {
+  right: 0.7rem;
+}
+
+.carousel-dots {
+  bottom: 0.7rem;
+  display: flex;
+  gap: 0.4rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.carousel-dot {
+  background: rgba(235, 228, 218, 0.45);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 7px;
+  padding: 0;
+  transition: background 180ms ease, transform 180ms ease;
+  width: 7px;
+}
+
+.carousel-dot--active {
+  background: var(--color-cream);
+  transform: scale(1.45);
 }
 
 .instagram-note a,
@@ -932,7 +1029,8 @@ footer a {
     border-left: 0;
   }
 
-  .project-card:nth-child(even) .image-placeholder {
+  .project-card:nth-child(even) .image-placeholder,
+  .project-card:nth-child(even) .project-image-slot {
     order: 0;
   }
 }
