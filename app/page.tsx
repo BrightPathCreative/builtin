@@ -98,7 +98,7 @@ const projects: Project[] = [
     title: "Murrumbeena Residence",
     label: "Architectural Renovation",
     text:
-      "A full-scale renovation delivered across kitchen, laundry, bathroom, and ensuite. Custom joinery in navy and sage, brass hardware throughout, Carrara marble benchtops and splashbacks, and harlequin marble flooring — every detail personally overseen by Josh.",
+      "A full-scale renovation delivered across kitchen, laundry, bathroom, and ensuite. Custom joinery in navy and sage, brass hardware throughout, Carrara marble benchtops and splashbacks, and harlequin marble flooring, every detail personally overseen by Josh.",
     images: murrumbeenaImages
   },
   {
