@@ -1,55 +1,43 @@
-import type { Metadata } from "next";
+import PageHero from "../components/PageSections";
+import ContactForm from "../components/ContactForm";
+import { createMetadata } from "../lib/metadata";
+import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL, SERVICE_AREAS } from "../lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact | Built In. Melbourne",
+export const metadata = createMetadata({
+  title: "Discuss Your Project | Built In. Melbourne | Bayside",
   description:
-    "Contact Built In. Melbourne to discuss an architectural renovation or bespoke new build across Bayside Melbourne."
-};
+    "Planning an architectural renovation or new build in Bayside Melbourne? Josh Coles welcomes the conversation. No obligation. Response within 1–2 business days.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
-    <main id="top">
-      <section className="section-shell contact page-section">
-        <div className="contact-copy reveal">
-          <p className="eyebrow">Contact</p>
-          <h1>Let&apos;s Talk About Your Project.</h1>
+    <>
+      <PageHero
+        title="Discuss Your Project — Built In. Melbourne"
+        description="If you're planning an architectural renovation or new build across Bayside Melbourne, Josh would welcome the opportunity to discuss it. No obligation. No pressure. Just a straightforward conversation about what you're looking to achieve."
+        compact
+      />
+
+      <section className="section-shell contact-layout">
+        <div className="copy-stack reveal">
+          <p>Josh typically responds within 1–2 business days.</p>
           <p>
-            If you&apos;re planning an architectural renovation or new build across
-            Bayside Melbourne, Josh would welcome the opportunity to discuss it. No
-            obligation. No pressure. Just a straightforward conversation.
-          </p>
-          <p className="contact-detail">
             <strong>Email:</strong>{" "}
-            <a href="mailto:josh@builtinmelbourne.com.au">
-              josh@builtinmelbourne.com.au
-            </a>
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             <br />
             <strong>Instagram:</strong>{" "}
-            <a href="https://www.instagram.com/builtin.melbourne">
-              @builtin.melbourne
-            </a>
+            <a href={INSTAGRAM_URL}>{INSTAGRAM_HANDLE}</a>
           </p>
-          <div className="contact-rhythm" aria-label="What happens next">
-            <p>
-              <span>01 / First Conversation</span>
-              Project intent, timing, site context, and fit.
-            </p>
-            <p>
-              <span>02 / Early Builder Input</span>
-              Buildability, scope clarity, and the realities behind the drawings.
-            </p>
-          </div>
-        </div>
-        <div className="form-placeholder reveal" aria-label="Future enquiry form">
-          <p className="eyebrow">Enquiry Form</p>
-          <h2>GHL form will be embedded here.</h2>
           <p>
-            Once the GoHighLevel iframe is supplied, this panel can be replaced
-            with the live form while retaining the same spacing and visual
-            treatment.
+            <strong>Service area:</strong> Bayside Melbourne and Melbourne&apos;s
+            inner south-east, including {SERVICE_AREAS.slice(0, 12).join(", ")},
+            and surrounding suburbs.
           </p>
         </div>
+
+        <ContactForm />
       </section>
-    </main>
+    </>
   );
 }
