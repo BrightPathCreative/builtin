@@ -1,6 +1,8 @@
 import Link from "next/link";
 import PageHero, { CtaBand, ProcessSteps } from "../components/PageSections";
+import { JsonLd } from "../components/FaqList";
 import { createMetadata } from "../lib/metadata";
+import { breadcrumbSchema, personSchema, webPageSchema } from "../lib/schema";
 
 export const metadata = createMetadata({
   title: "About Josh Coles | Architectural Builder Melbourne",
@@ -12,6 +14,22 @@ export const metadata = createMetadata({
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={personSchema} />
+      <JsonLd
+        data={webPageSchema({
+          path: "/about",
+          title: "About Josh Coles | Architectural Builder Melbourne",
+          description:
+            "Josh Coles — registered domestic builder (DB-U 45446), 16 years experience, high-spec renovations and new builds across Bayside Melbourne. Fully insured.",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
+
       <PageHero title="About Built In. Melbourne" compact />
 
       <section className="section-shell">

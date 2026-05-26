@@ -5,8 +5,9 @@ import { CONTACT_EMAIL } from "../lib/site";
 export const metadata = createMetadata({
   title: "Privacy Policy | Built In. Melbourne",
   description:
-    "Privacy information for Built In. Melbourne website enquiries and contact form submissions.",
+    "Privacy Policy for Built In. Melbourne Pty Ltd — builtinmelbourne.com.au",
   path: "/privacy-policy",
+  noindex: true,
 });
 
 export default function PrivacyPolicyPage() {

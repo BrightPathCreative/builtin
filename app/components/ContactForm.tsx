@@ -71,7 +71,8 @@ export default function ContactForm() {
     }
 
     formData.append("access_key", accessKey);
-    formData.append("subject", "New enquiry — Built In. Melbourne");
+    formData.append("subject", "New Project Enquiry — Built In. Melbourne");
+    formData.append("from_name", "Built In. Melbourne Website");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -92,21 +93,23 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      <input type="checkbox" name="botcheck" className="visually-hidden" tabIndex={-1} autoComplete="off" />
+
       <div className="form-grid">
         <label>
-          First Name
+          First Name *
           <input type="text" name="first_name" required autoComplete="given-name" />
         </label>
         <label>
-          Last Name
+          Last Name *
           <input type="text" name="last_name" required autoComplete="family-name" />
         </label>
         <label>
-          Email Address
+          Email Address *
           <input type="email" name="email" required autoComplete="email" />
         </label>
         <label>
-          Phone Number
+          Phone Number *
           <input type="tel" name="phone" required autoComplete="tel" />
         </label>
         <label className="form-grid__full">
@@ -136,8 +139,8 @@ export default function ContactForm() {
           </select>
         </label>
         <label className="form-grid__full">
-          Have you engaged an architect or designer?
-          <select name="architect_engaged" required defaultValue="">
+          Have you engaged an architect or designer? *
+          <select name="architect_status" required defaultValue="">
             <option value="" disabled>
               Select an option
             </option>
@@ -149,8 +152,8 @@ export default function ContactForm() {
           </select>
         </label>
         <label className="form-grid__full">
-          Do you have a tender package?
-          <select name="tender_package" required defaultValue="">
+          Do you have a tender package? *
+          <select name="tender_status" required defaultValue="">
             <option value="" disabled>
               Select an option
             </option>
@@ -188,16 +191,17 @@ export default function ContactForm() {
           </select>
         </label>
         <label className="form-grid__full">
-          Tell us about your project
+          Tell us about your project *
           <textarea
             name="message"
             rows={5}
+            required
             placeholder="Briefly describe your project, including any relevant details about the property, your design goals, or your timeline."
           />
         </label>
         <label className="form-grid__full">
           How did you hear about Built In. Melbourne?
-          <select name="referral" defaultValue="">
+          <select name="referral_source" defaultValue="">
             <option value="">Select an option (optional)</option>
             {referralOptions.map((option) => (
               <option key={option} value={option}>
@@ -208,7 +212,7 @@ export default function ContactForm() {
         </label>
       </div>
 
-      <button className="button" type="submit" disabled={status === "submitting"}>
+      <button className="btn-submit" type="submit" disabled={status === "submitting"}>
         {status === "submitting" ? "Sending…" : "Send Enquiry"}
       </button>
 

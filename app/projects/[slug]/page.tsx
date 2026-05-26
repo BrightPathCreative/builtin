@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import PageHero from "../../components/PageSections";
-import { ProjectGallery } from "../../components/ProjectCard";
+import { JsonLd } from "../../components/FaqList";
+import ProjectGallery from "../../components/ProjectGallery";
+import {
+  ProjectDetailsBar,
+  ProjectHero,
+} from "../../components/ProjectCard";
 import { createMetadata } from "../../lib/metadata";
 import { getProject, projects } from "../../lib/projects";
+import { breadcrumbSchema, webPageSchema } from "../../lib/schema";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -36,39 +41,40 @@ export default async function ProjectDetailPage({ params }: Props) {
     notFound();
   }
 
+  const path = `/projects/${project.slug}`;
+
   return (
     <>
-      <PageHero title={project.title} compact />
+      <JsonLd
+        data={webPageSchema({
+          path,
+          title: project.metaTitle,
+          description: project.metaDescription,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+          { name: project.title, path },
+        ])}
+      />
+
+      <ProjectHero project={project} />
+      <ProjectDetailsBar project={project} />
 
       <section className="section-shell">
-        <dl className="project-meta reveal">
-          <div>
-            <dt>Type</dt>
-            <dd>{project.type}</dd>
+        <div className="project-copy-grid">
+          <div className="copy-stack">
+            {project.sections.map((section) => (
+              <div key={section.heading} className="reveal">
+                <h2>{section.heading}</h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                ))}
+              </div>
+            ))}
           </div>
-          <div>
-            <dt>Suburb</dt>
-            <dd>{project.suburb ?? "To be confirmed"}</dd>
-          </div>
-          <div>
-            <dt>Year</dt>
-            <dd>{project.year ?? "To be confirmed"}</dd>
-          </div>
-          <div>
-            <dt>Design Collaborator</dt>
-            <dd>{project.collaborator ?? "To be confirmed"}</dd>
-          </div>
-        </dl>
-
-        <div className="copy-stack">
-          {project.sections.map((section) => (
-            <div key={section.heading} className="reveal">
-              <h2>{section.heading}</h2>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-              ))}
-            </div>
-          ))}
 
           {project.standoutDetails.length > 0 ? (
             <div className="reveal">
@@ -81,9 +87,11 @@ export default async function ProjectDetailPage({ params }: Props) {
             </div>
           ) : null}
         </div>
+      </section>
 
-        <ProjectGallery images={project.images} />
+      <ProjectGallery images={project.images} skipFirst />
 
+      <section className="section-shell">
         <nav className="project-nav reveal" aria-label="Project navigation">
           <Link className="text-link" href="/projects">
             ← Back to Projects

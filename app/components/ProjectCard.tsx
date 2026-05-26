@@ -5,19 +5,47 @@ import type { Project } from "../lib/projects";
 export function ProjectCard({
   project,
   featured = false,
+  overview = false,
 }: {
   project: Project;
   featured?: boolean;
+  overview?: boolean;
 }) {
   const type = featured && project.featuredType ? project.featuredType : project.type;
   const excerpt =
     featured && project.featuredExcerpt ? project.featuredExcerpt : project.excerpt;
+  const hasImage = project.images.length > 0 || project.heroImage;
+
+  if (overview) {
+    return (
+      <article className="gallery-card reveal">
+        <Link href={`/projects/${project.slug}`} className="gallery-card__link">
+          {hasImage ? (
+            <Image
+              src={project.heroImage}
+              alt={`${project.title} — ${type.toLowerCase()} — built in melbourne`}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="gallery-card__image"
+            />
+          ) : (
+            <div className="image-placeholder">Image Pending</div>
+          )}
+          <div className="gallery-card__overlay">
+            <p className="gallery-card__label">{type}</p>
+            <p className="gallery-card__name">{project.title}</p>
+            <span className="text-link">View Project</span>
+          </div>
+        </Link>
+      </article>
+    );
+  }
 
   return (
     <article className="project-card reveal">
       <Link href={`/projects/${project.slug}`} className="project-card__link">
         <div className="project-card__media">
-          {project.images.length > 0 || project.heroImage ? (
+          {hasImage ? (
             <Image
               src={project.heroImage}
               alt={`${project.title} — ${type.toLowerCase()} — built in melbourne`}
@@ -31,7 +59,7 @@ export function ProjectCard({
         </div>
         <div className="project-card__body">
           <p className="project-card__type">{type}</p>
-          <h3>{project.title}</h3>
+          <p className="project-card__title">{project.title}</p>
           {project.suburb ? (
             <p className="project-card__suburb">{project.suburb}</p>
           ) : null}
@@ -43,32 +71,62 @@ export function ProjectCard({
   );
 }
 
-export function ProjectGallery({
-  images,
-}: {
-  images: { src: string; alt: string }[];
-}) {
-  if (images.length === 0) {
-    return (
-      <div className="gallery-placeholder reveal">
-        <p>Project photography coming soon.</p>
-      </div>
-    );
-  }
+export function ProjectHero({ project }: { project: Project }) {
+  const heroSrc = project.heroImage || project.images[0]?.src;
+  const heroAlt =
+    project.images[0]?.alt ??
+    `${project.title} — ${project.type.toLowerCase()} — built in melbourne`;
 
   return (
-    <div className="project-gallery">
-      {images.map((image) => (
-        <figure key={image.src} className="project-gallery__item reveal">
+    <section className="project-hero">
+      <div className="project-hero__media">
+        {heroSrc ? (
           <Image
-            src={image.src}
-            alt={image.alt}
-            width={1200}
-            height={900}
-            sizes="(max-width: 768px) 100vw, 33vw"
+            src={heroSrc}
+            alt={heroAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="project-hero__image"
           />
-        </figure>
-      ))}
+        ) : (
+          <div className="project-hero__placeholder">Image Pending</div>
+        )}
+      </div>
+      <div className="project-hero__overlay">
+        <div className="project-hero__content reveal">
+          <p className="project-hero__type">{project.type}</p>
+          <h1>{project.title}</h1>
+          {project.suburb ? (
+            <p className="project-hero__suburb">{project.suburb}</p>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProjectDetailsBar({ project }: { project: Project }) {
+  return (
+    <div className="project-details-bar reveal">
+      <div>
+        <p className="project-detail-label">Type</p>
+        <p className="project-detail-value">{project.type}</p>
+      </div>
+      <div>
+        <p className="project-detail-label">Suburb</p>
+        <p className="project-detail-value">{project.suburb ?? "To be confirmed"}</p>
+      </div>
+      <div>
+        <p className="project-detail-label">Year</p>
+        <p className="project-detail-value">{project.year ?? "To be confirmed"}</p>
+      </div>
+      <div>
+        <p className="project-detail-label">Design Collaborator</p>
+        <p className="project-detail-value">
+          {project.collaborator ?? "To be confirmed"}
+        </p>
+      </div>
     </div>
   );
 }

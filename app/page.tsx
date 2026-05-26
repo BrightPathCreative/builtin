@@ -1,10 +1,16 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import FaqList, { JsonLd } from "./components/FaqList";
-import { CtaBand, TestimonialsSection, TrustBar } from "./components/PageSections";
+import {
+  CtaBand,
+  ServicesTiles,
+  TestimonialsSection,
+  TrustBar,
+} from "./components/PageSections";
 import { ProjectCard } from "./components/ProjectCard";
 import { faqSchema, homeFaqs } from "./lib/faqs";
 import { createMetadata } from "./lib/metadata";
+import { websiteSchema, webPageSchema } from "./lib/schema";
 import { getFeaturedProjects } from "./lib/projects";
 
 export const metadata = createMetadata({
@@ -17,41 +23,64 @@ export const metadata = createMetadata({
 const featuredProjects = getFeaturedProjects([
   "surrey-hills",
   "hawsleigh-balaclava",
-  "fawkner-residence",
+  "murrumbeena",
 ]);
 
-const services = [
+const serviceTiles = [
   {
+    number: "01",
     title: "Architectural Renovations",
-    text: "Large-scale renovations of established homes, from heritage-sensitive restorations to full contemporary transformations. Every renovation is personally managed by Josh from tender through to handover.",
+    excerpt:
+      "Large-scale renovations of established homes, from heritage-sensitive restorations to full contemporary transformations.",
     href: "/services/architectural-renovations",
+    linkLabel: "Architectural Renovations",
   },
   {
+    number: "02",
     title: "Bespoke New Builds",
-    text: "Ground-up custom homes with architect-led designs and the same personal oversight that defines every Built In. project. No templates. No handoffs.",
+    excerpt:
+      "Ground-up custom homes with architect-led designs and the same personal oversight that defines every Built In. project.",
     href: "/services/new-builds",
+    linkLabel: "Bespoke New Builds",
   },
   {
+    number: "03",
     title: "Client-Side Project Management",
-    text: "Already have a builder? Josh acts as a qualified second set of eyes — reviewing progress and advocating for your interests throughout the build.",
+    excerpt:
+      "Already have a builder? Josh acts as a qualified second set of eyes throughout your build.",
     href: "/services/client-side-project-management",
+    linkLabel: "Client-Side Project Management",
   },
 ];
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={websiteSchema} />
+      <JsonLd
+        data={webPageSchema({
+          path: "/",
+          title: "Architectural Builder Melbourne | Built In. Melbourne",
+          description:
+            "High-spec architectural renovations and bespoke new builds across Bayside Melbourne. Registered Builder (Unlimited) · 16 years experience. Discuss your project.",
+        })}
+      />
       <JsonLd data={faqSchema(homeFaqs)} />
 
-      <section className="home-hero">
-        <div className="home-hero__copy reveal">
-          <h1>Quality Comes From Being Present.</h1>
-          <p className="home-hero__lead">
-            High-spec architectural renovations and bespoke new builds across
-            Bayside Melbourne. One builder. One point of contact. Every detail,
-            personally delivered.
-          </p>
-          <p className="home-hero__meta">
+      <section className="hero">
+        <Image
+          src="/images/projects/surrey-hills/built-in-melbourne-kitchen-full-view-fluted-cabinetry-timber-ceiling-surrey-hills.jpg"
+          alt="architectural new build surrey hills — fluted kitchen cabinetry — built in melbourne"
+          fill
+          priority
+          sizes="100vw"
+          className="hero-image"
+        />
+        <div className="hero-gradient" aria-hidden="true" />
+        <div className="hero-content reveal">
+          <p className="hero-label">Built In. Melbourne</p>
+          <h1 className="hero-headline">Quality Comes From Being Present.</h1>
+          <p className="hero-trust">
             Registered Domestic Builder (Unlimited) · CDB-U 58374 · 16 Years
             Experience
           </p>
@@ -59,20 +88,9 @@ export default function HomePage() {
             Discuss Your Project
           </Link>
         </div>
-        <div className="home-hero__visual reveal">
-          <Image
-            src="/images/projects/surrey-hills/built-in-melbourne-kitchen-full-view-fluted-cabinetry-timber-ceiling-surrey-hills.jpg"
-            alt="architectural new build surrey hills — fluted kitchen cabinetry — built in melbourne"
-            width={720}
-            height={540}
-            priority
-          />
-          <img
-            className="home-hero__sketch"
-            src="/images/brand/architectural-sketch.png"
-            alt=""
-            aria-hidden="true"
-          />
+        <div className="hero-scroll" aria-hidden="true">
+          <span>Scroll</span>
+          <span className="hero-scroll-line" />
         </div>
       </section>
 
@@ -84,6 +102,10 @@ export default function HomePage() {
           <h2>Built by Josh Coles. Present on Every Project.</h2>
         </div>
         <div className="copy-stack reveal">
+          <blockquote className="about-pullquote">
+            Quality comes from being present — not from monitoring dashboards or
+            reading supervisor reports.
+          </blockquote>
           <p>
             Josh Coles started in carpentry sixteen years ago: six years on the
             tools, followed by a decade as a registered builder delivering
@@ -96,9 +118,7 @@ export default function HomePage() {
           <p>
             Josh runs Built In. Melbourne with a deliberately small footprint — a
             select number of projects per year, each personally overseen from
-            first meeting through to handover. He is on site. He is across every
-            detail. He is the person you speak with on Monday morning and the
-            person walking the job on Friday afternoon.
+            first meeting through to handover.
           </p>
           <Link className="text-link" href="/about">
             About Josh and how Built In. works
@@ -106,45 +126,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="section-heading reveal">
-          <p className="eyebrow">Services</p>
-          <h2>Architectural Builds. Delivered Personally.</h2>
-          <p>
-            Built In. Melbourne specialises in complex, high-specification
-            residential projects across Bayside Melbourne and the inner
-            south-east. Every project is personally managed by Josh Coles from
-            tender through to completion.
-          </p>
-        </div>
-        <div className="service-grid">
-          {services.map((service) => (
-            <article className="service-card reveal" key={service.href}>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              <Link className="text-link" href={service.href}>
-                {service.title}
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
+      <ServicesTiles tiles={serviceTiles} />
 
       <section className="section-shell">
         <div className="section-heading reveal">
           <p className="eyebrow">Selected Work</p>
           <h2>A Selection of Recent Projects</h2>
           <p>
-            A selection of recent Built In. Melbourne projects. Every build
-            personally delivered by Josh Coles.
+            Every build listed here was personally managed by Josh Coles, from
+            initial brief through to handover.
           </p>
         </div>
-        <div className="project-grid feature-grid">
+        <div className="project-grid project-grid--featured">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} featured />
           ))}
         </div>
-        <p className="reveal" style={{ marginTop: "2rem" }}>
+        <p className="reveal" style={{ marginTop: "2.5rem" }}>
           <Link className="button" href="/projects">
             View All Projects
           </Link>
@@ -153,12 +151,7 @@ export default function HomePage() {
 
       <TestimonialsSection />
 
-      <FaqList items={homeFaqs} />
-      <p className="section-shell reveal" style={{ paddingTop: 0 }}>
-        <Link className="text-link" href="/faq">
-          More questions
-        </Link>
-      </p>
+      <FaqList items={homeFaqs} heading="FAQ" />
 
       <CtaBand />
     </>

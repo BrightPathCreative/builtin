@@ -8,7 +8,7 @@ export default function FaqList({
   heading?: string;
 }) {
   return (
-    <section className="section-shell faq-section">
+    <section className="faq-section">
       <div className="section-heading reveal">
         <p className="eyebrow">FAQ</p>
         <h2>{heading}</h2>

@@ -56,19 +56,45 @@ export function CtaBand({
 
 export function TrustBar() {
   const stats = [
-    "16 Years Experience",
-    "DB-U 45446",
-    "Registered Builder (Unlimited)",
-    "Fully Insured",
+    { number: "16", label: "Years Experience" },
+    { number: "DB-U 45446", label: "Registered Builder" },
+    { number: "CDB-U 58374", label: "Company Licence" },
+    { number: "Fully Insured", label: "Built In. Melbourne Pty Ltd" },
   ];
 
   return (
     <section className="trust-bar" aria-label="Builder credentials">
       {stats.map((stat) => (
-        <div key={stat}>
-          <strong>{stat}</strong>
+        <div key={stat.label} className="trust-item">
+          <span className="trust-number">{stat.number}</span>
+          <span className="trust-label">{stat.label}</span>
         </div>
       ))}
+    </section>
+  );
+}
+
+type ServiceTile = {
+  number: string;
+  title: string;
+  excerpt: string;
+  href: string;
+  linkLabel: string;
+};
+
+export function ServicesTiles({ tiles }: { tiles: ServiceTile[] }) {
+  return (
+    <section className="section--dark">
+      <div className="services-tiles">
+        {tiles.map((tile) => (
+          <Link key={tile.href} href={tile.href} className="service-tile reveal">
+            <span className="service-tile-number">{tile.number}</span>
+            <span className="service-tile-title">{tile.title}</span>
+            <span className="service-tile-excerpt">{tile.excerpt}</span>
+            <span className="text-link">{tile.linkLabel}</span>
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }
@@ -123,10 +149,10 @@ export function ProcessSteps() {
 
 export function TestimonialsSection() {
   return (
-    <section className="section-shell">
+    <section className="section-shell section--mid">
       <div className="section-heading reveal">
         <p className="eyebrow">Testimonials</p>
-        <h2>What Clients and Collaborators Say</h2>
+        <h2>What Clients Say</h2>
       </div>
       <div className="testimonial-grid">
         {testimonials.map((testimonial) => (

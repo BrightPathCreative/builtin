@@ -1,53 +1,36 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import ScrollAnimations from "./components/ScrollAnimations";
-import { BASE_URL, CONTACT_EMAIL, SERVICE_AREAS } from "./lib/site";
+import { localBusinessSchema } from "./lib/schema";
 import "./globals.css";
 
-const description =
-  "High-spec architectural renovations and bespoke new builds across Bayside Melbourne. Registered Builder (Unlimited) · 16 years experience. Discuss your project.";
-
-export const viewport: Viewport = {
+export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#696C4C",
+  themeColor: "#111210",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
-  title: "Built In. Melbourne | High-End Architectural Builder",
-  description,
+  metadataBase: new URL("https://builtinmelbourne.com.au"),
+  title: {
+    default: "Built In. Melbourne | High-End Architectural Builder",
+    template: "%s",
+  },
+  description:
+    "High-spec architectural renovations and bespoke new builds across Bayside Melbourne. Registered Builder (Unlimited) · 16 years experience. Discuss your project.",
   applicationName: "Built In. Melbourne",
   openGraph: {
     siteName: "Built In. Melbourne",
     locale: "en_AU",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+  },
   robots: {
     index: true,
     follow: true,
   },
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "GeneralContractor",
-  name: "Built In. Melbourne Pty Ltd",
-  legalName: "Built In. Melbourne Pty Ltd",
-  url: BASE_URL,
-  email: CONTACT_EMAIL,
-  areaServed: SERVICE_AREAS.map((suburb) => ({
-    "@type": "City",
-    name: suburb,
-    containedInPlace: { "@type": "State", name: "Victoria" },
-  })),
-  founder: {
-    "@type": "Person",
-    name: "Josh Coles",
-    jobTitle: "Registered Domestic Builder",
-  },
-  description,
-  sameAs: ["https://www.instagram.com/builtin.melbourne"],
 };
 
 export default function RootLayout({
@@ -64,7 +47,7 @@ export default function RootLayout({
         />
         <SiteHeader />
         <ScrollAnimations />
-        {children}
+        <main>{children}</main>
         <SiteFooter />
       </body>
     </html>

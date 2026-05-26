@@ -1,10 +1,18 @@
 'use client';
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FOOTER_LINKS, NAV_LINKS, SERVICE_LINKS } from "../lib/site";
+import {
+  CONTACT_EMAIL,
+  FOOTER_LINKS,
+  NAV_LINKS,
+  SERVICE_LINKS,
+} from "../lib/site";
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -24,18 +32,22 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+    <header
+      className={`site-header${isHome ? " site-header--hero" : ""}${
+        scrolled ? " is-scrolled" : ""
+      }`}
+    >
       <div className="site-header__inner">
         <Link className="brand" href="/" aria-label="Built In. Melbourne home">
           <img
             src="/images/brand/logo.png"
-            alt="Built In. Melbourne logo — architectural builder Melbourne"
+            alt="built in melbourne logo — architectural builder bayside melbourne"
             width={160}
             height={48}
           />
         </Link>
 
-        <nav className="site-nav" aria-label="Primary navigation">
+        <nav className="site-nav" aria-label="Main navigation">
           {NAV_LINKS.map((link) =>
             link.href === "/services" ? (
               <div
@@ -80,8 +92,7 @@ export function SiteHeader() {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span />
-          <span />
+          {menuOpen ? "Close" : "Menu"}
         </button>
       </div>
 
@@ -107,6 +118,9 @@ export function SiteHeader() {
               </Link>
             ))}
           </div>
+          <div className="mobile-menu__email">
+            <a href={`mailto:${CONTACT_EMAIL}`}>josh@builtinmelbourne.com.au</a>
+          </div>
           <Link
             className="button button-nav"
             href="/contact"
@@ -131,23 +145,13 @@ export function SiteFooter() {
             Registered Domestic Builder (Unlimited) · CDB-U 58374 · Victorian
             Practitioner
           </p>
-          <p>
-            <a href="mailto:josh@builtinmelbourne.com.au">
-              josh@builtinmelbourne.com.au
-            </a>
-          </p>
-          <p>
-            <a href="https://www.instagram.com/builtin.melbourne">
-              @builtin.melbourne
-            </a>
-          </p>
-          <p>Bayside Melbourne</p>
           <p className="site-footer__trust">
             Fully Insured · 16 Years Experience · DB-U 45446
           </p>
         </div>
 
         <div className="site-footer__nav">
+          <p className="site-footer__nav-label">Navigation</p>
           <nav aria-label="Footer navigation">
             {NAV_LINKS.map((link) => (
               <Link key={link.href} href={link.href}>
@@ -162,6 +166,18 @@ export function SiteFooter() {
               </Link>
             ))}
           </nav>
+        </div>
+
+        <div className="site-footer__nav">
+          <p className="site-footer__nav-label">Contact</p>
+          <a href={`mailto:${CONTACT_EMAIL}`}>josh@builtinmelbourne.com.au</a>
+          <a
+            href="https://www.instagram.com/builtin.melbourne"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            @builtin.melbourne
+          </a>
         </div>
       </div>
       <p className="site-footer__copy">
