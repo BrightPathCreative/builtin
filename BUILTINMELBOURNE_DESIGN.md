@@ -185,7 +185,7 @@ Alternate between `--color-bg` (warm white) and `--color-bg-dark` (near-black) s
 |---|---|---|
 | Hero | Dark or image overlay | Inverse (warm white) |
 | About teaser | Warm white | Dark |
-| Services overview | Dark | Inverse |
+| Services overview | Brand green | Dark |
 | Featured projects | Warm white | Dark |
 | Testimonials | Dark | Inverse |
 | FAQ | Dark | Inverse |
@@ -873,29 +873,32 @@ Not uniform cards. Two large (one taller, one wider), one small. Creates visual 
 
 ## 13. Services Section (Homepage Tiles)
 
-Three tiles — not cards with icons. Text-forward, architectural.
+Three tiles — not cards with icons. Text-forward, architectural. Brand green background with black type.
 
 ```css
+.services-section {
+  background: var(--color-brand-green);
+  color: var(--color-text);
+  padding: clamp(4rem, 8vw, 6rem) clamp(2.5rem, 10vw, 7rem);
+}
+
 .services-tiles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: var(--color-bg-dark);
-  /* Hairline borders between tiles */
-  gap: 0;
-  border-top: 1px solid var(--color-line-dark);
-  border-bottom: 1px solid var(--color-line-dark);
+  max-width: 68rem;
+  margin: 0 auto;
+  border-top: 1px solid rgb(26 25 22 / 12%);
+  border-bottom: 1px solid rgb(26 25 22 / 12%);
 }
 
 .service-tile {
-  padding: var(--space-12) var(--space-8);
-  border-right: 1px solid var(--color-line-dark);
+  padding: clamp(2rem, 4vw, 2.75rem) clamp(1.75rem, 2.5vw, 2.25rem);
+  border-right: 1px solid rgb(26 25 22 / 12%);
   position: relative;
-  overflow: hidden;
   transition: background-color 0.3s ease;
 }
 .service-tile:last-child { border-right: none; }
 
-/* Subtle brass line that grows from bottom on hover */
 .service-tile::after {
   content: '';
   position: absolute;
@@ -903,38 +906,27 @@ Three tiles — not cards with icons. Text-forward, architectural.
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--color-brass);
+  background-color: var(--color-text);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
 }
 .service-tile:hover::after { transform: scaleX(1); }
 
-.service-tile-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem;
-  font-weight: 300;
-  color: rgba(247, 245, 241, 0.08);
-  line-height: 1;
-  margin-bottom: var(--space-4);
-}
-
 .service-tile-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.5rem);
   font-weight: 300;
-  color: var(--color-text-inverse);
-  margin-bottom: var(--space-4);
+  color: var(--color-text);
   line-height: 1.2;
 }
 
 .service-tile-excerpt {
   font-family: 'Jost', sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 300;
-  color: rgba(247, 245, 241, 0.55);
+  color: rgb(26 25 22 / 72%);
   line-height: 1.7;
-  margin-bottom: var(--space-6);
 }
 ```
 

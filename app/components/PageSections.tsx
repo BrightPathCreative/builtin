@@ -75,7 +75,6 @@ export function TrustBar() {
 }
 
 type ServiceTile = {
-  number: string;
   title: string;
   excerpt: string;
   href: string;
@@ -84,11 +83,10 @@ type ServiceTile = {
 
 export function ServicesTiles({ tiles }: { tiles: ServiceTile[] }) {
   return (
-    <section className="section--dark">
+    <section className="services-section">
       <div className="services-tiles">
         {tiles.map((tile) => (
           <Link key={tile.href} href={tile.href} className="service-tile reveal">
-            <span className="service-tile-number">{tile.number}</span>
             <span className="service-tile-title">{tile.title}</span>
             <span className="service-tile-excerpt">{tile.excerpt}</span>
             <span className="text-link">{tile.linkLabel}</span>

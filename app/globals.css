@@ -746,18 +746,26 @@ main {
 }
 
 /* Services tiles */
+.services-section {
+  background: var(--color-brand-green);
+  color: var(--color-text);
+  padding: clamp(4rem, 8vw, 6rem) clamp(2.5rem, 10vw, 7rem);
+}
+
 .services-tiles {
-  border-block: 1px solid var(--color-line-dark);
+  border-block: 1px solid rgb(26 25 22 / 12%);
   display: grid;
   grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 68rem;
 }
 
 .service-tile {
-  border-bottom: 1px solid var(--color-line-dark);
-  color: inherit;
+  border-bottom: 1px solid rgb(26 25 22 / 12%);
+  color: var(--color-text);
   display: grid;
   gap: 1rem;
-  padding: 3rem var(--container-pad);
+  padding: clamp(2rem, 4vw, 2.75rem) clamp(1.5rem, 3vw, 2rem);
   position: relative;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -768,7 +776,7 @@ main {
 }
 
 .service-tile::after {
-  background: var(--color-brass);
+  background: var(--color-text);
   bottom: 0;
   content: "";
   height: 2px;
@@ -780,30 +788,40 @@ main {
   width: 100%;
 }
 
+.service-tile:hover {
+  background: rgb(26 25 22 / 4%);
+}
+
 .service-tile:hover::after {
   transform: scaleX(1);
 }
 
-.service-tile-number {
-  color: rgb(var(--color-brand-cream-rgb) / 8%);
-  font-family: var(--font-display);
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .service-tile-title {
-  color: var(--color-text-inverse);
+  color: var(--color-text);
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.5rem);
   font-weight: 300;
   line-height: 1.2;
 }
 
 .service-tile-excerpt {
-  color: rgb(var(--color-brand-cream-rgb) / 55%);
-  font-size: 0.82rem;
+  color: rgb(26 25 22 / 72%);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 300;
   line-height: 1.7;
-  max-width: 38ch;
+  max-width: 34ch;
+}
+
+.service-tile .text-link {
+  border-bottom-color: rgb(26 25 22 / 55%);
+  color: var(--color-text);
+  justify-self: start;
+}
+
+.service-tile .text-link:hover {
+  border-bottom-color: var(--color-text);
+  color: var(--color-text);
 }
 
 @media (min-width: 900px) {
@@ -813,7 +831,8 @@ main {
 
   .service-tile {
     border-bottom: none;
-    border-right: 1px solid var(--color-line-dark);
+    border-right: 1px solid rgb(26 25 22 / 12%);
+    padding-inline: clamp(1.75rem, 2.5vw, 2.25rem);
   }
 
   .service-tile:last-child {

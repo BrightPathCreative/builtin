@@ -28,7 +28,6 @@ const featuredProjects = getFeaturedProjects([
 
 const serviceTiles = [
   {
-    number: "01",
     title: "Architectural Renovations",
     excerpt:
       "Large-scale renovations of established homes, from heritage-sensitive restorations to full contemporary transformations.",
@@ -36,7 +35,6 @@ const serviceTiles = [
     linkLabel: "Architectural Renovations",
   },
   {
-    number: "02",
     title: "Bespoke New Builds",
     excerpt:
       "Ground-up custom homes with architect-led designs and the same personal oversight that defines every Built In. project.",
@@ -44,7 +42,6 @@ const serviceTiles = [
     linkLabel: "Bespoke New Builds",
   },
   {
-    number: "03",
     title: "Client-Side Project Management",
     excerpt:
       "Already have a builder? Josh acts as a qualified second set of eyes throughout your build.",
