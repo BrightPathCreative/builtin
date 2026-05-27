@@ -3,6 +3,10 @@ export type TestimonialImage = {
   alt: string;
 };
 
+export type TestimonialCategory = "renovation" | "extension" | "new-build";
+
+export type TestimonialFilterId = "all" | TestimonialCategory;
+
 export type Testimonial = {
   id: string;
   quote: string;
@@ -10,15 +14,26 @@ export type Testimonial = {
   name: string;
   role: string;
   type: "client" | "collaborator";
-  /** Representative imagery until project photos are available */
-  images?: [TestimonialImage, TestimonialImage];
+  projectCategory?: TestimonialCategory;
+  /** Link to a project detail page when available */
+  projectSlug?: string;
+  projectLinkLabel?: string;
+  image?: TestimonialImage;
   imagesRepresentative?: boolean;
 };
+
+export const testimonialFilters: { id: TestimonialFilterId; label: string }[] = [
+  { id: "all", label: "All Projects" },
+  { id: "renovation", label: "Renovation" },
+  { id: "extension", label: "Extension" },
+  { id: "new-build", label: "New Build" },
+];
 
 export const testimonials: Testimonial[] = [
   {
     id: "kate-bednarz",
     type: "client",
+    projectCategory: "renovation",
     quote:
       "We first met Josh and his team when they undertook an underpinning job on our 1930's double brick home. His energy and professionalism stood out straight away, so when it came to the full double storey renovation, he was first on our list. We truly couldn't have built the home of our dreams if it wasn't for Josh. His willingness to listen and work with us to go through ideas and problem solve budget constraints went above and beyond. He was always willing to give us his time and was patient with our million questions. Josh's warm, calm approach was a constant throughout the project, especially when it came to getting through the massive hurdle that was covid lockdown. Navigating restrictions, as we were living on site, as well as supply shortages was no easy feat, but Josh carried us and his team through. We are forever grateful for his work and for the incredible home we are now so lucky to live in with our growing family thanks to him.",
     excerpt:
@@ -26,35 +41,24 @@ export const testimonials: Testimonial[] = [
     name: "Kate Bednarz",
     role: "Neville Street clients",
     imagesRepresentative: true,
-    images: [
-      {
-        src: "/images/projects/hawsleigh-balaclava/built-in-melbourne-heritage-renovation-built-in-window-seat-balaclava.jpg",
-        alt: "Heritage renovation with built-in window seat — representative project imagery",
-      },
-      {
-        src: "/images/projects/hawsleigh-balaclava/built-in-melbourne-vaulted-vj-panel-ceiling-open-plan-living-balaclava.jpg",
-        alt: "Vaulted VJ-panel ceiling in open-plan living — representative project imagery",
-      },
-    ],
+    image: {
+      src: "/images/projects/hawsleigh-balaclava/built-in-melbourne-heritage-renovation-built-in-window-seat-balaclava.jpg",
+      alt: "Heritage renovation with built-in window seat — representative project imagery",
+    },
   },
   {
     id: "feb-and-sam",
     type: "client",
+    projectCategory: "renovation",
     quote:
       "After researching several builders, we feel incredibly fortunate that we went ahead with Built in Melbourne. Josh was able to listen to our plans and execute them beyond what we had hoped! The team was attentive, timely and got the job done! It's also much easier when working with someone who is open and transparent about the challenges with renovating (which can come out of nowhere!). Would highly recommend Josh and the team at Built in Melbourne.",
     name: "Feb and Sam",
     role: "Moira clients",
     imagesRepresentative: true,
-    images: [
-      {
-        src: "/images/projects/murrumbeena/built-in-melbourne-kitchen-marble-island-window-seat-brass-mixer-murrumbeena.jpg",
-        alt: "Kitchen with marble island and window seat — representative project imagery",
-      },
-      {
-        src: "/images/projects/murrumbeena/built-in-melbourne-navy-shaker-kitchen-marble-island-rattan-stools-murrumbeena.jpg",
-        alt: "Navy shaker kitchen with marble island — representative project imagery",
-      },
-    ],
+    image: {
+      src: "/images/projects/murrumbeena/built-in-melbourne-kitchen-marble-island-window-seat-brass-mixer-murrumbeena.jpg",
+      alt: "Kitchen with marble island and window seat — representative project imagery",
+    },
   },
   {
     id: "nina-matyas",
@@ -73,6 +77,24 @@ export const testimonials: Testimonial[] = [
     role: "Studio Welgus",
   },
 ];
+
+export function getVisibleFilters() {
+  return testimonialFilters.filter((filter) => {
+    if (filter.id === "all") {
+      return true;
+    }
+
+    return testimonials.some((testimonial) => testimonial.projectCategory === filter.id);
+  });
+}
+
+export function filterTestimonials(filter: TestimonialFilterId): Testimonial[] {
+  if (filter === "all") {
+    return testimonials;
+  }
+
+  return testimonials.filter((testimonial) => testimonial.projectCategory === filter);
+}
 
 export const clientTestimonials = testimonials.filter((t) => t.type === "client");
 export const collaboratorTestimonials = testimonials.filter(
