@@ -30,7 +30,6 @@ export const SERVICE_AREAS = [
 ] as const;
 
 export const NAV_LINKS = [
-  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Projects" },
