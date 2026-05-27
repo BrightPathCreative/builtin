@@ -124,38 +124,58 @@ body, p {
 
 ### Palette
 
-The palette is drawn from the materials in Built In. Melbourne's projects: warm white plaster, charcoal steel, oak timber, brass tapware, dark cladding. No blue. No corporate neutrals.
+Brand colours are taken directly from the official logo (`/images/brand/logo.png`):
+
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-brand-cream` | `#EFEDE9` | Logo background, page background, header background, text on dark sections |
+| `--color-brand-green` | `#5B5E41` | Logo wordmark, primary accent, buttons, links, eyebrows, nav links |
+
+Supporting tones remain warm and architectural — charcoal dark sections, cream-led light sections, green accents throughout. No blue. No corporate neutrals.
 
 ```css
 :root {
+  /* Brand — source of truth from logo */
+  --color-brand-cream:       #EFEDE9;
+  --color-brand-green:       #5B5E41;
+  --color-brand-green-light: #73765A;  /* hover / on dark backgrounds */
+  --color-brand-green-dark:  #4A4D35;  /* pressed / secondary text on cream */
+
   /* Backgrounds */
-  --color-bg:           #F7F5F1;  /* warm off-white — primary background */
+  --color-bg:           var(--color-brand-cream);
   --color-bg-dark:      #111210;  /* near-black — footer, dark sections */
-  --color-bg-mid:       #EDEAE4;  /* warm light grey — alternate sections */
-  --color-bg-card:      #F2EFE9;  /* slightly warmer — project cards */
+  --color-bg-mid:       #E6E3DE;  /* slightly deeper cream — alternate sections */
+  --color-bg-card:      var(--color-brand-cream);
 
   /* Text */
-  --color-text:         #1A1916;  /* warm near-black — primary text */
-  --color-text-muted:   #6B6860;  /* warm mid grey — secondary text */
-  --color-text-light:   #9E9B95;  /* light warm grey — captions, metadata */
-  --color-text-inverse: #F7F5F1;  /* warm white — text on dark backgrounds */
+  --color-text:         #1A1916;
+  --color-text-muted:   #6B6860;
+  --color-text-light:   #9E9B95;
+  --color-text-inverse: var(--color-brand-cream);
 
-  /* Accent */
-  --color-brass:        #A88A5E;  /* warm brass — primary accent, inspired by project tapware */
-  --color-brass-light:  #C4A97A;  /* lighter brass — hover states */
-  --color-brass-dark:   #8A6E42;  /* darker brass — active states */
+  /* Accent aliases — map legacy brass tokens to brand green */
+  --color-brass:        var(--color-brand-green);
+  --color-brass-light:  var(--color-brand-green-light);
+  --color-brass-dark:   var(--color-brand-green-dark);
 
   /* Lines & Borders */
-  --color-line:         #D8D4CC;  /* warm light grey — dividers */
-  --color-line-dark:    #2C2B29;  /* dark dividers on dark backgrounds */
+  --color-line:         #DCD8D2;
+  --color-line-dark:    #2C2B29;
 
   /* States */
-  --color-focus:        #A88A5E;  /* brass — keyboard focus ring */
+  --color-focus:        var(--color-brand-green);
 
   /* Shape */
-  --radius-soft:        11px;    /* testimonial cards and paired imagery */
+  --radius-soft:        11px;
 }
 ```
+
+### Logo & Header
+
+- Logo file: `/images/brand/logo.png` — cream background with green wordmark. **Never apply CSS filters** (no invert/brightness hacks).
+- Header background: `--color-brand-cream` (`#EFEDE9`) at all times, matching the logo plate.
+- Nav links: `--color-brand-green`, uppercase tracked Jost.
+- On scroll: subtle `--color-line` bottom border only — header stays cream.
 
 ### Dark / Light Section Pattern
 
@@ -1254,7 +1274,7 @@ Photography is the most important design element on this site. Every image decis
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(168, 138, 94, 0.04); /* very subtle brass tint */
+  background: rgba(91, 94, 65, 0.04); /* very subtle brand green tint */
   pointer-events: none;
 }
 ```
@@ -1502,12 +1522,13 @@ Centred vertically and horizontally
 |---|---|
 | Full-bleed photography | Cropped images in boxes |
 | Cormorant italic for hero headlines | Inter, Poppins, Montserrat |
-| Warm brass as the only accent | Multiple accent colours |
+| Brand green (#5B5E41) as the only accent | Multiple accent colours |
 | Hairline borders (1px) | Drop shadows on cards |
 | Generous negative space | Dense icon-heavy sections |
 | Underline-style CTA buttons | Pill buttons with heavy fill |
 | Slow, deliberate animations | Bouncy spring animations |
-| Warm off-white (#F7F5F1) background | Pure white (#FFFFFF) |
+| Warm cream (#EFEDE9) background | Pure white (#FFFFFF) |
+| Logo displayed in natural colours on cream header | Inverted or filtered logo treatments |
 | Text overlaid on images with gradient | Text in boxes over images |
 | Uppercase tracked labels in Jost | Mixedcase badge components |
 | Dark sections alternating with light | All-white or all-dark throughout |

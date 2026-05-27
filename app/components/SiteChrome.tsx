@@ -1,7 +1,6 @@
 'use client';
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   CONTACT_EMAIL,
@@ -11,8 +10,6 @@ import {
 } from "../lib/site";
 
 export function SiteHeader() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -32,18 +29,14 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={`site-header${isHome ? " site-header--hero" : ""}${
-        scrolled ? " is-scrolled" : ""
-      }`}
-    >
+    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
       <div className="site-header__inner">
         <Link className="brand" href="/" aria-label="Built In. Melbourne home">
           <img
             src="/images/brand/logo.png"
-            alt="built in melbourne logo — architectural builder bayside melbourne"
-            width={160}
-            height={48}
+            alt="Built In. Melbourne"
+            width={852}
+            height={370}
           />
         </Link>
 
