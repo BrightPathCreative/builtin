@@ -313,11 +313,14 @@ main {
   align-items: center;
   display: inline-flex;
   flex-shrink: 0;
+  height: clamp(44px, 5.5vw, 52px);
+  overflow: hidden;
 }
 
 .brand img {
   display: block;
-  height: clamp(34px, 4.5vw, 42px);
+  height: clamp(60px, 8vw, 72px);
+  margin-top: clamp(-8px, -1.1vw, -10px);
   width: auto;
 }
 
@@ -571,7 +574,7 @@ main {
   animation: heroScale 12s ease-out forwards;
   inset: 0;
   object-fit: cover;
-  object-position: center;
+  object-position: 58% center;
   position: absolute;
 }
 
@@ -598,8 +601,8 @@ main {
 
 .hero-content {
   animation: heroFadeUp 1s ease-out 0.3s both;
-  bottom: clamp(3rem, 8vw, 6rem);
-  left: var(--container-pad);
+  bottom: clamp(4.5rem, 11vh, 8rem);
+  left: calc(var(--container-pad) + clamp(1.25rem, 3vw, 2.75rem));
   max-width: 680px;
   position: absolute;
   z-index: 2;
