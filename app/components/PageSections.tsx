@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { testimonials } from "../lib/testimonials";
+import TestimonialStack from "./TestimonialStack";
 
 type PageHeroProps = {
   eyebrow?: string;
@@ -149,24 +149,12 @@ export function ProcessSteps() {
 
 export function TestimonialsSection() {
   return (
-    <section className="section-shell section--mid">
+    <section className="section-shell section--dark testimonials-section">
       <div className="section-heading reveal">
         <p className="eyebrow">Testimonials</p>
-        <h2>What Clients Say</h2>
+        <h2>What Clients and Collaborators Say</h2>
       </div>
-      <div className="testimonial-grid">
-        {testimonials.map((testimonial) => (
-          <figure key={testimonial.name} className="testimonial-card reveal">
-            <blockquote>
-              <p>&ldquo;{testimonial.quote}&rdquo;</p>
-            </blockquote>
-            <figcaption>
-              <strong>{testimonial.name}</strong>
-              <span>{testimonial.role}</span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+      <TestimonialStack />
     </section>
   );
 }
