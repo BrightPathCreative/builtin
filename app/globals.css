@@ -28,6 +28,7 @@
   --max-width: var(--container-max);
   --section-padding-y: clamp(5rem, 10vw, 8rem);
   --header-height: 80px;
+  --radius-soft: 11px;
 }
 
 *,
@@ -1311,10 +1312,10 @@ main {
   color: rgb(247 245 241 / 55%);
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
-  padding: 0.65rem 1.1rem;
-  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  padding: 0.75rem 1.35rem;
+  text-transform: none;
   transition:
     border-color 0.25s ease,
     color 0.25s ease,
@@ -1329,6 +1330,12 @@ main {
 
 .testimonial-stack__filter.is-active {
   background: rgb(168 138 94 / 12%);
+}
+
+.testimonial-stack__empty {
+  color: rgb(247 245 241 / 55%);
+  font-size: 0.95rem;
+  margin: 0;
 }
 
 .testimonial-stack__layout {
@@ -1348,11 +1355,13 @@ main {
 .testimonial-stack__card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-line);
+  border-radius: var(--radius-soft);
   color: var(--color-text);
   display: grid;
   gap: 1.25rem;
   margin: 0;
   padding: clamp(1.75rem, 4vw, 2.5rem);
+  padding-bottom: clamp(4rem, 8vw, 4.75rem);
   position: absolute;
   text-align: left;
   top: 0;
@@ -1364,7 +1373,6 @@ main {
 }
 
 .testimonial-stack__card.is-active {
-  cursor: grab;
   position: relative;
   z-index: 20;
 }
@@ -1378,27 +1386,44 @@ main {
   outline-offset: 4px;
 }
 
-.testimonial-stack__swipe-hint {
+.testimonial-stack__next {
   align-items: center;
-  color: var(--color-text-muted);
+  appearance: none;
+  background: rgb(26 25 22 / 92%);
+  border: 1px solid rgb(26 25 22 / 15%);
+  border-radius: var(--radius-soft);
+  bottom: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--color-text-inverse);
+  cursor: pointer;
   display: inline-flex;
   font-family: var(--font-body);
-  font-size: 0.62rem;
-  gap: 0.4rem;
-  justify-self: end;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  gap: 0.45rem;
+  letter-spacing: 0.12em;
+  padding: 0.7rem 1rem;
+  position: absolute;
+  right: clamp(1.25rem, 3vw, 1.75rem);
   text-transform: uppercase;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+  z-index: 2;
 }
 
-.testimonial-stack__swipe-icon {
-  animation: testimonial-swipe-hint 2.2s ease-in-out infinite;
+.testimonial-stack__next:hover {
+  background: rgb(17 18 16 / 96%);
+  transform: translateX(2px);
 }
 
-@keyframes testimonial-swipe-hint {
+.testimonial-stack__next-icon {
+  animation: testimonial-next-hint 2s ease-in-out infinite;
+}
+
+@keyframes testimonial-next-hint {
   0%,
   100% {
-    opacity: 0.45;
-    transform: translateX(-3px);
+    opacity: 0.75;
+    transform: translateX(-2px);
   }
 
   50% {
@@ -1471,21 +1496,25 @@ main {
 }
 
 .testimonial-stack__media {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   min-height: 100%;
   min-width: 0;
   position: relative;
 }
 
 .testimonial-stack__figure {
-  height: 100%;
-  inset: 0;
+  border-radius: var(--radius-soft);
+  height: 75%;
+  inset: auto;
   margin: 0;
   opacity: 0;
   overflow: hidden;
   pointer-events: none;
   position: absolute;
   transition: opacity 0.45s ease;
-  width: 100%;
+  width: 75%;
 }
 
 .testimonial-stack__figure.is-active {
@@ -1586,7 +1615,7 @@ main {
   .testimonial-stack__layout {
     align-items: stretch;
     gap: clamp(1.5rem, 3vw, 2.5rem);
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   }
 
   .testimonial-stack__layout--solo {
@@ -1605,7 +1634,9 @@ main {
 
   .testimonial-stack__figure {
     aspect-ratio: 4 / 5;
+    height: auto;
     position: relative;
+    width: 100%;
   }
 
   .testimonial-stack__figure:not(.is-active) {
@@ -1616,7 +1647,7 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .testimonial-stack__card,
   .testimonial-stack__figure,
-  .testimonial-stack__swipe-icon {
+  .testimonial-stack__next-icon {
     animation: none;
     transition: none;
   }

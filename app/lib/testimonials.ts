@@ -23,10 +23,10 @@ export type Testimonial = {
 };
 
 export const testimonialFilters: { id: TestimonialFilterId; label: string }[] = [
-  { id: "all", label: "All Projects" },
-  { id: "renovation", label: "Renovation" },
-  { id: "extension", label: "Extension" },
-  { id: "new-build", label: "New Build" },
+  { id: "all", label: "All projects" },
+  { id: "renovation", label: "Renovations" },
+  { id: "extension", label: "Extensions" },
+  { id: "new-build", label: "New builds" },
 ];
 
 export const testimonials: Testimonial[] = [
@@ -79,13 +79,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export function getVisibleFilters() {
-  return testimonialFilters.filter((filter) => {
-    if (filter.id === "all") {
-      return true;
-    }
-
-    return testimonials.some((testimonial) => testimonial.projectCategory === filter.id);
-  });
+  return testimonialFilters;
 }
 
 export function filterTestimonials(filter: TestimonialFilterId): Testimonial[] {

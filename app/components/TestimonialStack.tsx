@@ -9,20 +9,20 @@ import {
   getVisibleFilters,
 } from "../lib/testimonials";
 
-function SwipeHintIcon() {
+function NextIcon() {
   return (
     <svg
-      className="testimonial-stack__swipe-icon"
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
+      className="testimonial-stack__next-icon"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
       fill="none"
       aria-hidden="true"
     >
       <path
-        d="M6 10H14M6 10L8.5 7.5M6 10L8.5 12.5M14 10L11.5 7.5M14 10L11.5 12.5"
+        d="M4 9H14M14 9L10.5 5.5M14 9L10.5 12.5"
         stroke="currentColor"
-        strokeWidth="1.2"
+        strokeWidth="1.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -51,8 +51,10 @@ type TestimonialCardProps = {
   activeIndex: number;
   total: number;
   isExpanded: boolean;
+  showNext: boolean;
   onSelect: () => void;
   onToggleExpand: () => void;
+  onNext: () => void;
 };
 
 function TestimonialCard({
@@ -61,8 +63,10 @@ function TestimonialCard({
   activeIndex,
   total,
   isExpanded,
+  showNext,
   onSelect,
   onToggleExpand,
+  onNext,
 }: TestimonialCardProps) {
   const isActive = index === activeIndex;
   const stackStyle = getStackStyle(index, activeIndex, total);
@@ -88,13 +92,6 @@ function TestimonialCard({
       tabIndex={isActive ? -1 : 0}
       aria-label={!isActive ? `${testimonial.name}, ${testimonial.role}` : undefined}
     >
-      {isActive ? (
-        <span className="testimonial-stack__swipe-hint" aria-hidden="true">
-          <SwipeHintIcon />
-          <span>Swipe</span>
-        </span>
-      ) : null}
-
       <span className="testimonial-stack__mark" aria-hidden="true">
         &ldquo;
       </span>
@@ -123,6 +120,21 @@ function TestimonialCard({
         <strong>{testimonial.name}</strong>
         <span>{testimonial.role}</span>
       </footer>
+
+      {isActive && showNext ? (
+        <button
+          type="button"
+          className="testimonial-stack__next"
+          onClick={(event) => {
+            event.stopPropagation();
+            onNext();
+          }}
+          aria-label="Next testimonial"
+        >
+          <NextIcon />
+          <span>Next</span>
+        </button>
+      ) : null}
     </article>
   );
 }
@@ -137,6 +149,7 @@ export default function TestimonialStack() {
   const filtered = filterTestimonials(filter);
   const active = filtered[activeIndex] ?? filtered[0];
   const hasImage = Boolean(active?.image);
+  const hasMultiple = filtered.length > 1;
 
   useEffect(() => {
     setActiveIndex(0);
@@ -187,10 +200,6 @@ export default function TestimonialStack() {
     touchStartX.current = null;
   }
 
-  if (!active) {
-    return null;
-  }
-
   return (
     <div className="testimonial-stack reveal">
       <div className="testimonial-stack__filters" role="tablist" aria-label="Filter testimonials">
@@ -210,92 +219,102 @@ export default function TestimonialStack() {
         ))}
       </div>
 
-      <div
-        className={`testimonial-stack__layout${
-          hasImage ? "" : " testimonial-stack__layout--solo"
-        }`}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        <div className="testimonial-stack__deck" aria-live="polite">
-          {filtered.map((testimonial, index) => (
-            <TestimonialCard
-              key={testimonial.id}
-              testimonial={testimonial}
-              index={index}
-              activeIndex={activeIndex}
-              total={filtered.length}
-              isExpanded={Boolean(expandedIds[testimonial.id])}
-              onSelect={() => handleSelect(index)}
-              onToggleExpand={() => toggleExpand(testimonial.id)}
-            />
-          ))}
-        </div>
-
-        {hasImage && active.image ? (
-          <div className="testimonial-stack__media">
-            {filtered.map((testimonial, index) =>
-              testimonial.image ? (
-                <figure
+      {filtered.length === 0 ? (
+        <p className="testimonial-stack__empty">
+          No testimonials in this category yet.
+        </p>
+      ) : (
+        <>
+          <div
+            className={`testimonial-stack__layout${
+              hasImage ? "" : " testimonial-stack__layout--solo"
+            }`}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className="testimonial-stack__deck" aria-live="polite">
+              {filtered.map((testimonial, index) => (
+                <TestimonialCard
                   key={testimonial.id}
-                  className={`testimonial-stack__figure${
-                    index === activeIndex ? " is-active" : ""
-                  }`}
-                >
-                  <Image
-                    src={testimonial.image.src}
-                    alt={testimonial.image.alt}
-                    fill
-                    sizes="(max-width: 899px) 100vw, 50vw"
-                    className="testimonial-stack__image"
-                  />
-                  {testimonial.projectSlug ? (
-                    <div className="testimonial-stack__media-overlay">
-                      <Link
-                        href={`/projects/${testimonial.projectSlug}`}
-                        className="testimonial-stack__project-link"
-                      >
-                        {testimonial.projectLinkLabel ?? "View project"}
-                      </Link>
-                    </div>
-                  ) : null}
-                </figure>
-              ) : null
-            )}
-          </div>
-        ) : null}
-      </div>
+                  testimonial={testimonial}
+                  index={index}
+                  activeIndex={activeIndex}
+                  total={filtered.length}
+                  isExpanded={Boolean(expandedIds[testimonial.id])}
+                  showNext={hasMultiple}
+                  onSelect={() => handleSelect(index)}
+                  onToggleExpand={() => toggleExpand(testimonial.id)}
+                  onNext={() => goToOffset(1)}
+                />
+              ))}
+            </div>
 
-      {filtered.length > 1 ? (
-        <div className="testimonial-stack__controls">
-          <button
-            type="button"
-            className="testimonial-stack__control"
-            onClick={() => goToOffset(-1)}
-            aria-label="Previous testimonial"
-          >
-            ←
-          </button>
-          <div className="testimonial-stack__dots" aria-hidden="true">
-            {filtered.map((testimonial, index) => (
-              <span
-                key={testimonial.id}
-                className={`testimonial-stack__dot${
-                  index === activeIndex ? " is-active" : ""
-                }`}
-              />
-            ))}
+            {hasImage && active?.image ? (
+              <div className="testimonial-stack__media">
+                {filtered.map((testimonial, index) =>
+                  testimonial.image ? (
+                    <figure
+                      key={testimonial.id}
+                      className={`testimonial-stack__figure${
+                        index === activeIndex ? " is-active" : ""
+                      }`}
+                    >
+                      <Image
+                        src={testimonial.image.src}
+                        alt={testimonial.image.alt}
+                        fill
+                        sizes="(max-width: 899px) 100vw, 38vw"
+                        className="testimonial-stack__image"
+                      />
+                      {testimonial.projectSlug ? (
+                        <div className="testimonial-stack__media-overlay">
+                          <Link
+                            href={`/projects/${testimonial.projectSlug}`}
+                            className="testimonial-stack__project-link"
+                          >
+                            {testimonial.projectLinkLabel ?? "View project"}
+                          </Link>
+                        </div>
+                      ) : null}
+                    </figure>
+                  ) : null
+                )}
+              </div>
+            ) : null}
           </div>
-          <button
-            type="button"
-            className="testimonial-stack__control"
-            onClick={() => goToOffset(1)}
-            aria-label="Next testimonial"
-          >
-            →
-          </button>
-        </div>
-      ) : null}
+
+          {hasMultiple ? (
+            <div className="testimonial-stack__controls">
+              <button
+                type="button"
+                className="testimonial-stack__control"
+                onClick={() => goToOffset(-1)}
+                aria-label="Previous testimonial"
+              >
+                ←
+              </button>
+              <div className="testimonial-stack__dots" aria-hidden="true">
+                {filtered.map((testimonial, index) => (
+                  <span
+                    key={testimonial.id}
+                    className={`testimonial-stack__dot${
+                      index === activeIndex ? " is-active" : ""
+                    }`}
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                className="testimonial-stack__control"
+                onClick={() => goToOffset(1)}
+                aria-label="Next testimonial"
+              >
+                →
+              </button>
+            </div>
+          ) : null}
+        </>
+      )}
     </div>
   );
 }

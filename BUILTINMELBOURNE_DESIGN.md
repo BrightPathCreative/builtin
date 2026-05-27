@@ -23,7 +23,7 @@ Every page should feel like the photography was shot for a magazine and the type
 ### What to Actively Avoid
 - Any pattern that looks like a tradie website, service business, or Wix template
 - Icon-heavy "features" sections
-- Cards with drop shadows and rounded corners
+- Cards with drop shadows and heavy rounded corners (exception: testimonial cards use `--radius-soft` only)
 - Progress bars, star ratings, or testimonial sliders
 - Purple gradients, generic geometric backgrounds, stock photography feel
 - Fonts: Inter, Roboto, Arial, Poppins, Montserrat, Space Grotesk
@@ -151,6 +151,9 @@ The palette is drawn from the materials in Built In. Melbourne's projects: warm 
 
   /* States */
   --color-focus:        #A88A5E;  /* brass — keyboard focus ring */
+
+  /* Shape */
+  --radius-soft:        11px;    /* testimonial cards and paired imagery */
 }
 ```
 
@@ -164,7 +167,7 @@ Alternate between `--color-bg` (warm white) and `--color-bg-dark` (near-black) s
 | About teaser | Warm white | Dark |
 | Services overview | Dark | Inverse |
 | Featured projects | Warm white | Dark |
-| Testimonials | Mid grey | Dark |
+| Testimonials | Dark | Inverse |
 | FAQ | Dark | Inverse |
 | Footer | Dark | Inverse |
 
@@ -1226,12 +1229,18 @@ document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 Photography is the most important design element on this site. Every image decision should treat the photos as editorial rather than decorative.
 
 ```css
-/* All project images — no border radius, no drop shadows */
+/* Project gallery images — square corners, no drop shadows */
 .project-image {
   border-radius: 0;
   box-shadow: none;
   display: block;
   width: 100%;
+}
+
+/* Testimonial cards and paired imagery — softened corners only */
+.testimonial-stack__card,
+.testimonial-stack__figure {
+  border-radius: var(--radius-soft); /* 11px */
 }
 
 /* Subtle warm overlay on all project photography */
@@ -1264,6 +1273,43 @@ Photography is the most important design element on this site. Every image decis
   />
 </div>
 ```
+
+---
+
+## 19a. Testimonials Section
+
+Dark section with a click-to-focus card stack, filter pills, and a single paired project image.
+
+### Filter pills
+
+Sentence-case labels, always visible:
+
+- All projects
+- Renovations
+- Extensions
+- New builds
+
+Pills use a pill shape (`border-radius: 999px`) with hairline borders. Active state: brass border + subtle brass tint background.
+
+### Card stack
+
+- Warm card surface (`--color-bg-card`) with `--radius-soft` (11px) corners
+- Large brass quotation mark, Cormorant italic quote body
+- Expandable long quotes via “Read full letter”
+- Inactive cards fan behind the active card; click a peeking card to focus it
+- **Next control:** fixed to the bottom-right of the active card — dark near-black button (`rgb(26 25 22 / 92%)`), uppercase “Next” label, animated arrow. This is the primary control for advancing slides (do not rely on hover over stacked cards)
+
+### Paired image
+
+- Single image only, rendered at **75%** of the card height/width within the right column
+- Same `--radius-soft` (11px) corner radius via overflow hidden on the figure
+- Optional gradient overlay + project link button at the bottom when `projectSlug` is set
+- Image column is narrower than the card column (`~1.15fr / 0.85fr` grid split)
+
+### Mobile
+
+- Single active card + filter pills + dot/arrow controls below
+- Touch swipe supported on the layout container
 
 ---
 
@@ -1465,7 +1511,7 @@ Centred vertically and horizontally
 | Text overlaid on images with gradient | Text in boxes over images |
 | Uppercase tracked labels in Jost | Mixedcase badge components |
 | Dark sections alternating with light | All-white or all-dark throughout |
-| No border-radius on images | Rounded image corners |
+| No border-radius on project gallery images | Rounded corners on testimonial cards/images (`--radius-soft`, 11px) |
 | Masonry gallery layout | Equal-height thumbnail grids |
 | Custom cursor (desktop) | Default cursor on premium brand |
 | H3s as small uppercase labels | H3s as medium-sized headings |
