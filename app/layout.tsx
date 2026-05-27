@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BackToTop from "./components/BackToTop";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import ScrollAnimations from "./components/ScrollAnimations";
 import { localBusinessSchema } from "./lib/schema";
@@ -49,6 +50,7 @@ export default function RootLayout({
         <ScrollAnimations />
         <main>{children}</main>
         <SiteFooter />
+        <BackToTop />
       </body>
     </html>
   );
