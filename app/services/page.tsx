@@ -12,7 +12,7 @@ export const metadata = createMetadata({
 const services = [
   {
     title: "High-Spec Architectural Renovations",
-    text: "Large-scale renovations of established homes, from heritage-sensitive restorations that preserve period character to full contemporary transformations that reimagine how a home functions. Structural alterations, premium material selections, interior-designed finishes — and a level of precision that leaves no room for shortcuts.",
+    text: "Large-scale renovations of established homes, from heritage-sensitive restorations that preserve period character to full contemporary transformations that reimagine how a home functions. Structural alterations, premium material selections, interior-designed finishes, and a level of precision that leaves no room for shortcuts.",
     href: "/services/architectural-renovations",
   },
   {
@@ -22,7 +22,7 @@ const services = [
   },
   {
     title: "Client-Side Project Management",
-    text: "Already have a builder but want someone in your corner? Josh acts as a qualified second set of eyes — reviewing progress, assessing workmanship, and ensuring the build aligns with the approved plans and Australian standards. This service exists because Josh has seen too many homeowners left in the dark during their own renovation.",
+    text: "Already have a builder but want someone in your corner? Josh acts as a qualified second set of eyes: reviewing progress, assessing workmanship, and ensuring the build aligns with the approved plans and Australian standards. This service exists because Josh has seen too many homeowners left in the dark during their own renovation.",
     href: "/services/client-side-project-management",
   },
 ];
@@ -32,7 +32,7 @@ export default function ServicesPage() {
     <>
       <PageHero
         title="Architectural Building Services Melbourne"
-        description="Built In. Melbourne specialises in complex, high-specification residential projects across Bayside Melbourne and the inner south-east. Every project is personally managed by Josh Coles — from the initial conversation through to handover."
+        description="Built In. Melbourne specialises in complex, high-specification residential projects across Bayside Melbourne and the inner south-east. Every project is personally managed by Josh Coles: from the initial conversation through to handover."
         compact
       />
 

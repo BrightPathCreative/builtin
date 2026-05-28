@@ -7,7 +7,7 @@ import { createMetadata } from "../../lib/metadata";
 export const metadata = createMetadata({
   title: "Architectural Renovations Melbourne | Built In. Melbourne",
   description:
-    "Large-scale architectural renovations across Bayside Melbourne — heritage to contemporary. Personally managed by Josh Coles, DB-U 45446. Fully insured.",
+    "Large-scale architectural renovations across Bayside Melbourne: heritage to contemporary. Personally managed by Josh Coles, DB-U 45446. Fully insured.",
   path: "/services/architectural-renovations",
 });
 
@@ -23,7 +23,7 @@ export default function ArchitecturalRenovationsPage() {
           <h2>What a High-Spec Renovation Actually Involves</h2>
           <p>
             A high-spec architectural renovation is a significant transformation
-            of an existing home — typically involving structural changes,
+            of an existing home: typically involving structural changes,
             premium materials, interior-designed finishes, and a level of
             complexity that goes well beyond a cosmetic refresh. These are
             projects where drawings and documentation from an architect or
@@ -35,7 +35,7 @@ export default function ArchitecturalRenovationsPage() {
             eighteen months from tender to handover. It involves managing
             structural engineers, soil and site investigations, council and VBA
             permit processes, material and supplier lead times, and a large team
-            of specialist trades — all while keeping the build aligned with the
+            of specialist trades: all while keeping the build aligned with the
             design intent and the client&apos;s expectations.
           </p>
 
@@ -44,7 +44,7 @@ export default function ArchitecturalRenovationsPage() {
             Much of Built In. Melbourne&apos;s renovation work is
             heritage-sensitive. Brighton, Elsternwick, Hawthorn, Balaclava,
             Caulfield, and the surrounding inner suburbs carry heritage overlays
-            that add a specific layer of complexity — facade retention, matching
+            that add a specific layer of complexity: facade retention, matching
             original materials, working within planning constraints while still
             delivering a contemporary, high-performing interior.
           </p>
@@ -88,7 +88,7 @@ export default function ArchitecturalRenovationsPage() {
             finalised. At the preliminary stage, he can review plans, flag
             buildability issues, and advise on structural cost savings before the
             design is locked in. This early-stage involvement frequently saves
-            clients money — not by reducing the scope, but by identifying
+            clients money, not by reducing the scope, but by identifying
             engineering inefficiencies and sequencing issues that create cost when
             they surface on site.
           </p>
@@ -104,7 +104,7 @@ export default function ArchitecturalRenovationsPage() {
 
       <FaqList
         items={renovationFaqs}
-        heading="Frequently Asked Questions — Architectural Renovations Melbourne"
+        heading="Frequently Asked Questions: Architectural Renovations Melbourne"
       />
 
       <CtaBand

@@ -7,7 +7,7 @@ import { breadcrumbSchema, personSchema, webPageSchema } from "../lib/schema";
 export const metadata = createMetadata({
   title: "About Josh Coles | Architectural Builder Melbourne",
   description:
-    "Josh Coles — registered domestic builder (DB-U 45446), 16 years experience, high-spec renovations and new builds across Bayside Melbourne. Fully insured.",
+    "Josh Coles, registered domestic builder (DB-U 45446), 16 years experience, high-spec renovations and new builds across Bayside Melbourne. Fully insured.",
   path: "/about",
 });
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
           path: "/about",
           title: "About Josh Coles | Architectural Builder Melbourne",
           description:
-            "Josh Coles — registered domestic builder (DB-U 45446), 16 years experience, high-spec renovations and new builds across Bayside Melbourne. Fully insured.",
+            "Josh Coles, registered domestic builder (DB-U 45446), 16 years experience, high-spec renovations and new builds across Bayside Melbourne. Fully insured.",
         })}
       />
       <JsonLd
@@ -45,12 +45,12 @@ export default function AboutPage() {
             licence as a registered Victorian practitioner (DB-U 45446), and his
             company, Built In. Melbourne Pty Ltd, is separately registered under
             CDB-U 58374. Today, he runs Built In. Melbourne with a deliberately
-            small footprint — a select number of projects per year, each
+            small footprint, with a select number of projects per year, each
             personally overseen from first meeting through to handover.
           </p>
           <p>
-            Where most builders scale by adding layers — project managers, site
-            supervisors, office coordinators — Josh works in the opposite
+            Where most builders scale by adding layers: project managers, site
+            supervisors, office coordinators, Josh works in the opposite
             direction. He is the single point of contact for every client.
             He&apos;s on site. He&apos;s across every detail. He&apos;s the
             person you speak with on Monday morning and the person walking the
@@ -75,7 +75,7 @@ export default function AboutPage() {
             Built In. Melbourne has delivered high-spec architectural
             renovations and custom new builds across Brighton, Elsternwick,
             Beaumaris, Caulfield, Balaclava, Hawthorn, Surrey Hills, and
-            Murrumbeena — predominantly Bayside and inner south-east suburbs
+            Murrumbeena: predominantly Bayside and inner south-east suburbs
             where the clients and the projects demand the same things: precision,
             accountability, and a builder who is genuinely present throughout.
           </p>

@@ -9,7 +9,7 @@ function filenameToAlt(filename: string, suburb: string): string {
     .replace(/\s+/g, " ")
     .trim();
 
-  return `${base} — ${suburb.toLowerCase()} — built in melbourne`;
+  return `${base}, ${suburb.toLowerCase()}: built in melbourne`;
 }
 
 export function getProjectImages(

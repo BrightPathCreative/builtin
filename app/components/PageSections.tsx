@@ -119,12 +119,12 @@ export function ProcessSteps() {
     {
       number: "1",
       title: "Meet",
-      text: "It starts with a conversation. Josh meets every prospective client before any numbers are discussed. This isn't a sales pitch — it's a mutual assessment. He wants to understand your project, your expectations, and whether the working relationship is the right fit. If it's not, he'll say so early.",
+      text: "It starts with a conversation. Josh meets every prospective client before any numbers are discussed. This isn't a sales pitch; it's a mutual assessment. He wants to understand your project, your expectations, and whether the working relationship is the right fit. If it's not, he'll say so early.",
     },
     {
       number: "2",
       title: "Tender",
-      text: "Built In. uses a staged tendering process: preliminary costing, a detailed scope, and a final fixed-price tender. Each stage refines the numbers so there are no surprises when the build begins. If Josh is brought in before the tender package is finalised, he can advise on buildability and cost efficiency — often saving clients money before a dollar is spent on construction.",
+      text: "Built In. uses a staged tendering process: preliminary costing, a detailed scope, and a final fixed-price tender. Each stage refines the numbers so there are no surprises when the build begins. If Josh is brought in before the tender package is finalised, he can advise on buildability and cost efficiency, often saving clients money before a dollar is spent on construction.",
     },
     {
       number: "3",

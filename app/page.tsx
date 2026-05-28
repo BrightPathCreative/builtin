@@ -67,7 +67,7 @@ export default function HomePage() {
       <section className="hero">
         <Image
           src="/images/projects/surrey-hills/built-in-melbourne-kitchen-full-view-fluted-cabinetry-timber-ceiling-surrey-hills.jpg"
-          alt="architectural new build surrey hills — fluted kitchen cabinetry — built in melbourne"
+          alt="architectural new build surrey hills: fluted kitchen cabinetry, built in melbourne"
           fill
           priority
           sizes="100vw"
@@ -100,7 +100,7 @@ export default function HomePage() {
         </div>
         <div className="copy-stack reveal">
           <blockquote className="about-pullquote">
-            Quality comes from being present — not from monitoring dashboards or
+            Quality comes from being present, not from monitoring dashboards or
             reading supervisor reports.
           </blockquote>
           <p>
@@ -113,7 +113,7 @@ export default function HomePage() {
             CDB-U 58374.
           </p>
           <p>
-            Josh runs Built In. Melbourne with a deliberately small footprint — a
+            Josh runs Built In. Melbourne with a deliberately small footprint: a
             select number of projects per year, each personally overseen from
             first meeting through to handover.
           </p>

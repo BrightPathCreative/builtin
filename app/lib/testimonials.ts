@@ -43,7 +43,7 @@ export const testimonials: Testimonial[] = [
     imagesRepresentative: true,
     image: {
       src: "/images/projects/hawsleigh-balaclava/built-in-melbourne-heritage-renovation-built-in-window-seat-balaclava.jpg",
-      alt: "Heritage renovation with built-in window seat — representative project imagery",
+      alt: "Heritage renovation with built-in window seat: representative project imagery",
     },
   },
   {
@@ -57,7 +57,7 @@ export const testimonials: Testimonial[] = [
     imagesRepresentative: true,
     image: {
       src: "/images/projects/murrumbeena/built-in-melbourne-kitchen-marble-island-window-seat-brass-mixer-murrumbeena.jpg",
-      alt: "Kitchen with marble island and window seat — representative project imagery",
+      alt: "Kitchen with marble island and window seat: representative project imagery",
     },
   },
   {

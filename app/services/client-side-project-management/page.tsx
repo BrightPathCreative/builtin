@@ -24,7 +24,7 @@ export default function ClientSideProjectManagementPage() {
             Client-side project management is a service for homeowners who are
             already engaged with a builder but want an independent, qualified
             professional reviewing the build on their behalf. Josh Coles acts as
-            your advocate throughout the project — reading the plans, attending
+            your advocate throughout the project, reading the plans, attending
             site meetings, assessing the workmanship, and providing honest advice
             on what he sees.
           </p>
@@ -41,11 +41,11 @@ export default function ClientSideProjectManagementPage() {
           <h2>What Client-Side Project Management Covers</h2>
           <p>
             Josh reviews the approved documentation against the work on site. He
-            attends key site meetings. He assesses critical construction stages —
-            frame inspections, waterproofing, tiling, joinery installation — and
-            provides clear, informed feedback on whether the work meets the
-            specification and the standard. Where it doesn&apos;t, he documents it
-            and advises on how to raise that with your builder.
+            attends key site meetings. He assesses critical construction stages:
+            frame inspections, waterproofing, tiling, and joinery installation,
+            and provides clear, informed feedback on whether the work meets the
+            specification and the standard. Where it doesn&apos;t, he documents
+            it and advises on how to raise that with your builder.
           </p>
           <p>
             This service covers high-spec architectural renovations and new builds
@@ -59,8 +59,8 @@ export default function ClientSideProjectManagementPage() {
           <h2>Who This Service Is For</h2>
           <p>
             Client-side project management suits homeowners investing in a
-            significant project — typically a high-spec renovation or new build
-            with an interior-designed finish — who don&apos;t have a building
+            significant project, typically a high-spec renovation or new build
+            with an interior-designed finish, who don&apos;t have a building
             background and want independent oversight of the work as it
             progresses. It&apos;s particularly valuable on complex builds where the
             number of trades, the level of finish, and the coordination
@@ -77,7 +77,7 @@ export default function ClientSideProjectManagementPage() {
 
       <FaqList
         items={clientSideFaqs}
-        heading="Frequently Asked Questions — Client-Side Project Management"
+        heading="Frequently Asked Questions: Client-Side Project Management"
       />
 
       <CtaBand />

@@ -36,7 +36,7 @@ export default function ProjectsPage() {
       <JsonLd data={projectsItemListSchema} />
 
       <PageHero
-        title="Selected Work — Built In. Melbourne"
+        title="Selected Work: Built In. Melbourne"
         description="A record of recent Built In. Melbourne projects. Every build listed here was personally managed by Josh Coles, from initial brief through to handover. For project documentation and ongoing updates, follow @builtin.melbourne on Instagram."
         compact
       />

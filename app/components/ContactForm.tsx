@@ -21,11 +21,11 @@ const architectOptions = ["Yes", "Not yet", "Looking for recommendations"];
 const tenderOptions = ["Yes, ready to go", "In progress", "No"];
 
 const budgetOptions = [
-  "$100K – $300K",
-  "$300K – $500K",
-  "$500K – $800K",
-  "$800K – $1.5M",
-  "$1.5M – $3M",
+  "$100K to $300K",
+  "$300K to $500K",
+  "$500K to $800K",
+  "$800K to $1.5M",
+  "$1.5M to $3M",
   "$3M+",
   "Prefer not to say",
 ];
@@ -71,7 +71,7 @@ export default function ContactForm() {
     }
 
     formData.append("access_key", accessKey);
-    formData.append("subject", "New Project Enquiry — Built In. Melbourne");
+    formData.append("subject", "New Project Enquiry: Built In. Melbourne");
     formData.append("from_name", "Built In. Melbourne Website");
 
     try {
@@ -218,7 +218,7 @@ export default function ContactForm() {
 
       {status === "success" ? (
         <p className="form-message form-message--success" role="status">
-          Thank you. Josh typically responds within 1–2 business days.
+          Thank you. Josh typically responds within 1 to 2 business days.
         </p>
       ) : null}
 
@@ -234,7 +234,7 @@ export default function ContactForm() {
 
       {!process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ? (
         <p className="form-message form-message--note">
-          Form integration pending — add your Web3Forms access key to{" "}
+          Form integration pending: add your Web3Forms access key to{" "}
           <code>NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY</code>.
         </p>
       ) : null}

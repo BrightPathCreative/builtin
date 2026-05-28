@@ -48,7 +48,7 @@ export const localBusinessSchema = {
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
     credentialCategory: "licence",
-    name: "Domestic Builder (Unlimited) — Company Registration",
+    name: "Domestic Builder (Unlimited), Company Registration",
     identifier: "CDB-U 58374",
     recognizedBy: {
       "@type": "Organization",
@@ -84,7 +84,7 @@ export const personSchema = {
     {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "licence",
-      name: "Domestic Builder (Unlimited) — Individual Practitioner",
+      name: "Domestic Builder (Unlimited), Individual Practitioner",
       identifier: "DB-U 45446",
       recognizedBy: {
         "@type": "Organization",
@@ -147,7 +147,7 @@ export function breadcrumbSchema(
 export const projectsItemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Selected Work — Built In. Melbourne",
+  name: "Selected Work: Built In. Melbourne",
   description:
     "A record of completed architectural renovations and bespoke new builds across Bayside Melbourne, personally managed by Josh Coles.",
   url: `${BASE_URL}/projects`,
@@ -158,7 +158,7 @@ export const projectsItemListSchema = {
       position: 1,
       name: "Sir Garnet Road, Surrey Hills",
       description:
-        "Bespoke architectural new build — dark vertical cladding, walnut joinery, polished concrete floors, dark mosaic pool.",
+        "Bespoke architectural new build: dark vertical cladding, walnut joinery, polished concrete floors, dark mosaic pool.",
       url: `${BASE_URL}/projects/surrey-hills`,
     },
     {
@@ -166,7 +166,7 @@ export const projectsItemListSchema = {
       position: 2,
       name: "Hawsleigh Avenue, Balaclava",
       description:
-        "Heritage-sensitive architectural renovation — facade retained, vaulted VJ-panelled ceilings, oak joinery, bespoke garden studio.",
+        "Heritage-sensitive architectural renovation: facade retained, vaulted VJ-panelled ceilings, oak joinery, bespoke garden studio.",
       url: `${BASE_URL}/projects/hawsleigh-balaclava`,
     },
     {
@@ -174,7 +174,7 @@ export const projectsItemListSchema = {
       position: 3,
       name: "Liddiard Street, Hawthorn",
       description:
-        "Architectural renovation — bespoke kitchen, walnut butler's pantry, brass tapware, black freestanding bath, heritage cornices retained.",
+        "Architectural renovation: bespoke kitchen, walnut butler's pantry, brass tapware, black freestanding bath, heritage cornices retained.",
       url: `${BASE_URL}/projects/liddiard-hawthorn`,
     },
     {
@@ -182,7 +182,7 @@ export const projectsItemListSchema = {
       position: 4,
       name: "Murrumbeena",
       description:
-        "Architectural renovation — navy shaker cabinetry, marble slab surfaces, brass hardware, freestanding bath on marble checkerboard floors.",
+        "Architectural renovation: navy shaker cabinetry, marble slab surfaces, brass hardware, freestanding bath on marble checkerboard floors.",
       url: `${BASE_URL}/projects/murrumbeena`,
     },
     {
@@ -190,7 +190,7 @@ export const projectsItemListSchema = {
       position: 5,
       name: "The Fawkner Residence",
       description:
-        "Heritage-sensitive architectural renovation — coastal modern direction, Velux skylights, Bowings stone and tile.",
+        "Heritage-sensitive architectural renovation: coastal modern direction, Velux skylights, Bowings stone and tile.",
       url: `${BASE_URL}/projects/fawkner-residence`,
     },
     {
@@ -198,7 +198,7 @@ export const projectsItemListSchema = {
       position: 6,
       name: "The Mary Residence",
       description:
-        "Full-scale architectural renovation — modern aesthetic, considered material selections, direct builder oversight throughout.",
+        "Full-scale architectural renovation: modern aesthetic, considered material selections, direct builder oversight throughout.",
       url: `${BASE_URL}/projects/mary-residence`,
     },
     {
@@ -206,7 +206,7 @@ export const projectsItemListSchema = {
       position: 7,
       name: "The Henry Residence",
       description:
-        "Contemporary architectural renovation — refined finishes, modern direction, personally managed by Josh Coles from brief to handover.",
+        "Contemporary architectural renovation: refined finishes, modern direction, personally managed by Josh Coles from brief to handover.",
       url: `${BASE_URL}/projects/henry-residence`,
     },
   ],

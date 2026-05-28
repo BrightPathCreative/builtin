@@ -23,7 +23,7 @@ export function ProjectCard({
           {hasImage ? (
             <Image
               src={project.heroImage}
-              alt={`${project.title} — ${type.toLowerCase()} — built in melbourne`}
+              alt={`${project.title}, ${type.toLowerCase()}: built in melbourne`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="gallery-card__image"
@@ -48,7 +48,7 @@ export function ProjectCard({
           {hasImage ? (
             <Image
               src={project.heroImage}
-              alt={`${project.title} — ${type.toLowerCase()} — built in melbourne`}
+              alt={`${project.title}, ${type.toLowerCase()}: built in melbourne`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="project-card__image"
@@ -75,7 +75,7 @@ export function ProjectHero({ project }: { project: Project }) {
   const heroSrc = project.heroImage || project.images[0]?.src;
   const heroAlt =
     project.images[0]?.alt ??
-    `${project.title} — ${project.type.toLowerCase()} — built in melbourne`;
+    `${project.title}, ${project.type.toLowerCase()}: built in melbourne`;
 
   return (
     <section className="project-hero">

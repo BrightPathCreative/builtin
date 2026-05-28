@@ -6,7 +6,7 @@ import { createMetadata } from "../lib/metadata";
 export const metadata = createMetadata({
   title: "Frequently Asked Questions | Built In. Melbourne",
   description:
-    "Answers to common questions about Built In. Melbourne — architectural renovations, new builds, client-side project management, licences, and service areas.",
+    "Answers to common questions about Built In. Melbourne: architectural renovations, new builds, client-side project management, licences, and service areas.",
   path: "/faq",
 });
 
@@ -18,7 +18,7 @@ export default function FaqPage() {
       <JsonLd data={faqSchema(allFaqs)} />
 
       <PageHero
-        title="Frequently Asked Questions — Built In. Melbourne"
+        title="Frequently Asked Questions: Built In. Melbourne"
         description="Common questions about Built In. Melbourne, the services offered, and how to determine whether your project is the right fit."
         compact
       />

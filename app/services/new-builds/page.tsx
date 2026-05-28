@@ -7,7 +7,7 @@ import { createMetadata } from "../../lib/metadata";
 export const metadata = createMetadata({
   title: "Bespoke New Builds Melbourne | Built In. Melbourne",
   description:
-    "Ground-up custom homes across Bayside Melbourne — architect-led, high-spec, personally managed by Josh Coles from tender to handover. DB-U 45446.",
+    "Ground-up custom homes across Bayside Melbourne: architect-led, high-spec, personally managed by Josh Coles from tender to handover. DB-U 45446.",
   path: "/services/new-builds",
 });
 
@@ -23,7 +23,7 @@ export default function NewBuildsPage() {
           <h2>Custom Homes Designed Around the Way You Live</h2>
           <p>
             A bespoke new build with Built In. Melbourne is a ground-up custom
-            home — designed around how the client actually wants to live, not
+            home: designed around how the client actually wants to live, not
             adapted from a template or a display home layout. These are
             architect-led projects with high-spec interiors, and Josh Coles
             manages the full build personally from the moment the tender is
@@ -54,7 +54,7 @@ export default function NewBuildsPage() {
           <p>
             Built In. Melbourne is designed around the opposite. Josh is the
             single point of contact. He&apos;s on site. He coordinates directly
-            with the architect and design team throughout the build — not just at
+            with the architect and design team throughout the build, not just at
             the start and end. Every specification is reviewed before the relevant
             trade begins work. Every finish is held to the standard documented in
             the drawings. If it&apos;s not right, it&apos;s not finished.
@@ -81,7 +81,7 @@ export default function NewBuildsPage() {
 
       <FaqList
         items={newBuildFaqs}
-        heading="Frequently Asked Questions — Architectural New Builds Melbourne"
+        heading="Frequently Asked Questions: Architectural New Builds Melbourne"
       />
 
       <CtaBand
