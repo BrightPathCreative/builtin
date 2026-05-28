@@ -51,10 +51,11 @@ type TestimonialCardProps = {
   activeIndex: number;
   total: number;
   isExpanded: boolean;
-  showNext: boolean;
+  showNav: boolean;
   onSelect: () => void;
   onToggleExpand: () => void;
   onNext: () => void;
+  onPrev: () => void;
 };
 
 function TestimonialCard({
@@ -63,10 +64,11 @@ function TestimonialCard({
   activeIndex,
   total,
   isExpanded,
-  showNext,
+  showNav,
   onSelect,
   onToggleExpand,
   onNext,
+  onPrev,
 }: TestimonialCardProps) {
   const isActive = index === activeIndex;
   const stackStyle = getStackStyle(index, activeIndex, total);
@@ -121,19 +123,32 @@ function TestimonialCard({
         <span>{testimonial.role}</span>
       </footer>
 
-      {isActive && showNext ? (
-        <button
-          type="button"
-          className="testimonial-stack__next"
-          onClick={(event) => {
-            event.stopPropagation();
-            onNext();
-          }}
-          aria-label="Next testimonial"
-        >
-          <NextIcon />
-          <span>Next</span>
-        </button>
+      {isActive && showNav ? (
+        <>
+          <button
+            type="button"
+            className="testimonial-stack__back"
+            onClick={(event) => {
+              event.stopPropagation();
+              onPrev();
+            }}
+            aria-label="Previous testimonial"
+          >
+            Back
+          </button>
+          <button
+            type="button"
+            className="testimonial-stack__next"
+            onClick={(event) => {
+              event.stopPropagation();
+              onNext();
+            }}
+            aria-label="Next testimonial"
+          >
+            <NextIcon />
+            <span>Next</span>
+          </button>
+        </>
       ) : null}
     </article>
   );
@@ -241,10 +256,11 @@ export default function TestimonialStack() {
                   activeIndex={activeIndex}
                   total={filtered.length}
                   isExpanded={Boolean(expandedIds[testimonial.id])}
-                  showNext={hasMultiple}
+                  showNav={hasMultiple}
                   onSelect={() => handleSelect(index)}
                   onToggleExpand={() => toggleExpand(testimonial.id)}
                   onNext={() => goToOffset(1)}
+                  onPrev={() => goToOffset(-1)}
                 />
               ))}
             </div>
