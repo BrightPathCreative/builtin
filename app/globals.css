@@ -623,7 +623,16 @@ main {
   font-weight: 300;
   letter-spacing: -0.02em;
   line-height: 1;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-lead {
+  animation: heroFadeUp 1s ease-out 0.2s both;
+  color: rgb(var(--color-brand-cream-rgb) / 82%);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  margin: 0 0 2rem;
+  max-width: 36rem;
 }
 
 @keyframes heroFadeUp {

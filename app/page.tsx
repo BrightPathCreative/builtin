@@ -76,6 +76,11 @@ export default function HomePage() {
         <div className="hero-gradient" aria-hidden="true" />
         <div className="hero-content reveal">
           <h1 className="hero-headline">Quality Comes From Being Present.</h1>
+          <p className="hero-lead">
+            High-spec architectural renovations and bespoke new builds across
+            Bayside Melbourne. One builder. One point of contact. Every detail,
+            personally delivered.
+          </p>
           <Link className="button" href="/contact">
             Discuss Your Project
           </Link>
