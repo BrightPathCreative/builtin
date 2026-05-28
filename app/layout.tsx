@@ -1,9 +1,25 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import BackToTop from "./components/BackToTop";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import ScrollAnimations from "./components/ScrollAnimations";
 import { localBusinessSchema } from "./lib/schema";
 import "./globals.css";
+
+const cormorant = Cormorant_Garamond({
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-cormorant",
+});
+
+const jost = Jost({
+  weight: ["300", "400", "500"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jost",
+});
 
 export const viewport = {
   width: "device-width",
@@ -40,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU">
+    <html lang="en-AU" className={`${cormorant.variable} ${jost.variable}`}>
       <body>
         <script
           type="application/ld+json"
