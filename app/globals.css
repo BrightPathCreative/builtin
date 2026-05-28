@@ -42,6 +42,9 @@
   --section-padding-y: clamp(5rem, 10vw, 8rem);
   --header-height: 80px;
   --radius-soft: 11px;
+  --nav-link-size: 0.68rem;
+  --nav-link-tracking: 0.18em;
+  --nav-link-weight: 500;
 }
 
 *,
@@ -74,6 +77,7 @@ img {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 a:focus-visible,
@@ -213,10 +217,10 @@ main {
   cursor: pointer;
   display: inline-flex;
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: var(--nav-link-size);
+  font-weight: var(--nav-link-weight);
   gap: 0.75rem;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--nav-link-tracking);
   min-height: auto;
   padding: 0 0 3px;
   text-decoration: none;
@@ -281,12 +285,13 @@ main {
 .text-link {
   border-bottom: 1px solid var(--color-brass);
   color: var(--color-brass-dark);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-size: var(--nav-link-size);
+  font-weight: var(--nav-link-weight);
+  letter-spacing: var(--nav-link-tracking);
   padding-bottom: 2px;
   text-decoration: none;
   text-transform: uppercase;
+  transition: border-color 0.25s ease, color 0.25s ease;
 }
 
 .text-link:hover {
@@ -366,18 +371,25 @@ main {
 }
 
 .site-nav > a,
+.nav-dropdown__trigger,
+.nav-dropdown__menu a,
+.mobile-menu__group a,
+.site-footer__nav nav a {
+  font-family: var(--font-body);
+  font-size: var(--nav-link-size);
+  font-weight: var(--nav-link-weight);
+  letter-spacing: var(--nav-link-tracking);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-nav > a,
 .nav-dropdown__trigger {
   align-items: center;
   color: var(--color-brand-green);
   display: inline-flex;
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
   line-height: 1;
   opacity: 0.82;
-  text-decoration: none;
-  text-transform: uppercase;
   transition: opacity 0.2s ease;
 }
 
@@ -397,7 +409,7 @@ main {
   border: 1px solid var(--color-line);
   display: none;
   left: 0;
-  min-width: 280px;
+  min-width: 20rem;
   padding: 0.5rem;
   padding-top: 0.85rem;
   position: absolute;
@@ -416,17 +428,25 @@ main {
 
 .nav-dropdown__menu.is-open {
   display: grid;
+  gap: 0.15rem;
 }
 
 .nav-dropdown__menu a {
-  color: var(--color-text);
-  font-size: 0.65rem;
-  opacity: 0.85;
-  padding: 0.65rem 0.85rem;
+  border-radius: calc(var(--radius-soft) - 2px);
+  color: var(--color-brand-green);
+  line-height: 1.35;
+  opacity: 0.82;
+  padding: 0.8rem 0.95rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.nav-dropdown__menu a:hover {
-  color: var(--color-brand-green);
+.nav-dropdown__menu a:hover,
+.nav-dropdown__menu a:focus-visible {
+  background: rgb(var(--color-brand-green-rgb) / 10%);
+  color: var(--color-brand-green-dark);
   opacity: 1;
 }
 
@@ -440,11 +460,16 @@ main {
   color: var(--color-brand-green);
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-size: var(--nav-link-size);
+  font-weight: var(--nav-link-weight);
+  letter-spacing: var(--nav-link-tracking);
   padding: 0.5rem;
   text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.menu-toggle:hover {
+  opacity: 0.75;
 }
 
 .mobile-menu {
@@ -466,12 +491,21 @@ main {
   gap: 1.25rem;
 }
 
-.mobile-menu a {
+.mobile-menu nav > a:not(.button-nav) {
   color: var(--color-text);
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 6vw, 2.5rem);
   font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
   text-decoration: none;
+  text-transform: none;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-menu nav > a:not(.button-nav):hover,
+.mobile-menu nav > a:not(.button-nav):focus-visible {
+  opacity: 0.72;
 }
 
 .mobile-menu__group {
@@ -485,16 +519,30 @@ main {
 .mobile-menu__group > span {
   color: var(--color-brand-green);
   font-family: var(--font-body);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  font-size: var(--nav-link-size);
+  font-weight: var(--nav-link-weight);
+  letter-spacing: var(--nav-link-tracking);
+  opacity: 0.72;
   text-transform: uppercase;
 }
 
 .mobile-menu__group a {
+  color: var(--color-brand-green);
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  font-size: var(--nav-link-size);
+  font-weight: var(--nav-link-weight);
+  letter-spacing: var(--nav-link-tracking);
+  opacity: 0.82;
+  padding: 0.35rem 0;
   text-transform: uppercase;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.mobile-menu__group a:hover,
+.mobile-menu__group a:focus-visible {
+  opacity: 1;
 }
 
 .mobile-menu__email {
@@ -582,9 +630,31 @@ main {
   gap: 0.35rem;
 }
 
-.site-footer__nav a {
+.site-footer__nav nav a {
+  color: rgb(var(--color-brand-cream-rgb) / 55%);
+  opacity: 0.85;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.site-footer__nav nav a:hover,
+.site-footer__nav nav a:focus-visible {
+  color: var(--color-brass-light);
+  opacity: 1;
+}
+
+.site-footer__nav > a {
   color: rgb(var(--color-brand-cream-rgb) / 55%);
   font-size: 0.8rem;
+  letter-spacing: normal;
+  text-transform: none;
+  transition: color 0.2s ease;
+}
+
+.site-footer__nav > a:hover,
+.site-footer__nav > a:focus-visible {
+  color: var(--color-brass-light);
 }
 
 .site-footer__copy {
