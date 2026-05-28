@@ -56,20 +56,37 @@ export function CtaBand({
 
 export function TrustBar() {
   const stats = [
-    { number: "16", label: "Years Experience" },
-    { number: "DB-U 45446", label: "Registered Builder" },
-    { number: "CDB-U 58374", label: "Company Licence" },
-    { number: "Fully Insured", label: "Built In. Melbourne Pty Ltd" },
+    {
+      headline: "16 years",
+      supporting:
+        "From the tools to the company. Carpentry trained, builder led.",
+    },
+    {
+      headline: "One point of contact",
+      supporting: "Josh personally. No supervisors, no layers.",
+    },
+    {
+      headline: "Heritage to contemporary",
+      supporting:
+        "Architect-designed renovations and builds across Melbourne's south-east.",
+    },
+    {
+      headline: "Bayside Melbourne",
+      supporting:
+        "Brighton, Beaumaris, Elsternwick, Caulfield and surrounding suburbs.",
+    },
   ];
 
   return (
-    <section className="trust-bar" aria-label="Builder credentials">
-      {stats.map((stat) => (
-        <div key={stat.label} className="trust-item">
-          <span className="trust-number">{stat.number}</span>
-          <span className="trust-label">{stat.label}</span>
-        </div>
-      ))}
+    <section className="trust-bar reveal" aria-label="Credentials">
+      <div className="trust-bar__inner">
+        {stats.map((stat) => (
+          <div key={stat.headline} className="trust-item">
+            <h3 className="trust-item__headline">{stat.headline}</h3>
+            <p className="trust-item__supporting">{stat.supporting}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
