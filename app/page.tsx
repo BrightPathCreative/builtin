@@ -75,12 +75,7 @@ export default function HomePage() {
         />
         <div className="hero-gradient" aria-hidden="true" />
         <div className="hero-content reveal">
-          <p className="hero-label">Built In. Melbourne</p>
           <h1 className="hero-headline">Quality Comes From Being Present.</h1>
-          <p className="hero-trust">
-            Registered Domestic Builder (Unlimited) · CDB-U 58374 · 16 Years
-            Experience
-          </p>
           <Link className="button" href="/contact">
             Discuss Your Project
           </Link>
